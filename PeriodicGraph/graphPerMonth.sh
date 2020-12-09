@@ -6,7 +6,7 @@
 
 DIR="/home/mriantf/script_skripsi"
 OUTPUT="${DIR}/OUTPUT"
-RRALOC="/var/www/html/cacti/rra"
+RRALOC="/var/lib/cacti/rra"
 
 REPORT_ID=$1
 GTYPE=$2
