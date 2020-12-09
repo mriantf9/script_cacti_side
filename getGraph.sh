@@ -31,6 +31,7 @@ do
   do
     cat ${DT_RP}/${i}/${j} | while read line
 	do
+	  REPORT_ID=`echo $line | awk -F';' '{print $1}'`
 	  REPORT_NAME=`echo $line | awk -F';' '{print $4}'`
 	  GTYPE=`echo $line | awk -F';' '{print $5}'`
 	  RRDFILE=`echo $line | awk -F';' '{print $6}'`
@@ -38,7 +39,7 @@ do
 	  FILENAME=`echo $line | awk -F';' '{print $7}' | sed 's/ /_/g' | sed 's/\//-/g'`
 	  
 	  #coba 24 jam terakhir
-	  /usr/bin/rrdtool graph ${OUTPUT}/${i}/${DATE_FN}_${GTYPE}_${FILENAME}.png \
+	  /usr/bin/rrdtool graph ${OUTPUT}/${i}/${REPORT_ID}_${DATE_FN}_${GTYPE}_${FILENAME}.png \
 		--imgformat=PNG \
 		--start="${LAST24}" \
 		--end="${NOW}" \
