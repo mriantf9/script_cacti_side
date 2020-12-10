@@ -1,16 +1,9 @@
-<?php 
+<?php
 
 $DIR = ("/home/mriantf/script_skripsi");
-$DT_RP= ($DIR . "/DATA_REPORT/Daily");
-$WORKDIR= ($DIR . "/script");
-$SCRIPTDIR= getCwd();
-$OUTPUT= ($DIR . "/OUTPUT_PDF");
+$DT_RP = ($DIR . "/DATA_REPORT/Daily");
+$WORKDIR = ($DIR . "/script");
+$SCRIPTDIR = getCwd();
+$OUTPUT = ($DIR . "/OUTPUT_PDF");
 
-echo $SCRIPTDIR $OUTPUT;
-
-
-
-
-
-
-?>
+echo "$SCRIPTDIR, $OUTPUT";
