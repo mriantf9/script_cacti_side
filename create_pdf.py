@@ -49,4 +49,4 @@ for filecsv in csv_list:
                 #pdf.add_page()
                 #pdf.set_font("Arial", size=12)
                 #pdf.image(imglist,x=50,y=100,w=20,h=5)
-            :#pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F')
+            #pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F')
