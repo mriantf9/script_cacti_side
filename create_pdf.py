@@ -20,20 +20,21 @@ GTYPE = sys.argv[1]
 
 LISTIMG = listdir(SRC_IMG)
 
-csv_list = listdir(DT_DIR+'/'+GTYPE+'/')
+csv_list = listdir(DT_DIR+'/'+GTYPE)
 
 #print(csv_list)
 
+
 for filecsv in csv_list:
-    with open (filecsv) as csv_file:
+    with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         line_count = 0
         for row in csv_reader:
             IDREPORT = {row[0]}
             EMAIL = {row[1]}
-            TITLE = {row[3]}
-            PERIODIC = 'per'+{row[7]}
-            print(IDREPORT)
+            TITLE = row[3]
+            #PERIODIC = 'per'+{row[7]}
+            print(TITLE)
 
 
 pdf = FPDF('P','mm','A4')
