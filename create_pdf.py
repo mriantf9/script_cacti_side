@@ -20,7 +20,7 @@ GTYPE = sys.argv[1]
 
 LISTIMG = listdir(SRC_IMG)
 
-csv_list = listdir(DT_DIR+'/'+GTYPE)
+csv_list = listdir(DT_DIR+'/'+GTYPE+'/')
 
 #print(csv_list)
 
