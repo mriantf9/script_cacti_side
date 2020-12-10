@@ -11,6 +11,7 @@ import glob
 ##FOR SEPARATE##
 import re
 
+pdf = FPDF('P','mm','A4')
 ###### DEFINE ######
 DIR = "/home/mriantf/script_skripsi"
 DT_DIR = DIR+"/DATA_REPORT"
@@ -30,14 +31,16 @@ for filecsv in csv_list:
         csv_reader = csv.reader(csv_file, delimiter=';')
         line_count = 0
         for row in csv_reader:
-            IDREPORT = {row[0]}
-            EMAIL = {row[1]}
+            IDREPORT = row[0]
+            EMAIL = row[1]
             TITLE = row[3]
-            #PERIODIC = 'per'+{row[7]}
-            print(TITLE)
+            PERIODIC = row[7]
+            #print(TITLE)
+            for fileimg in LISTIMG:
+                fixfile = glob.glob('*_'+IDREPORT+'_'+GTYPE+'_per'+PERIODIC+'*')
+                print(fixfile)
 
 
-pdf = FPDF('P','mm','A4')
 pdf.add_page()
 pdf.set_font("Arial", size=12)
 
