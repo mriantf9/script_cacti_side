@@ -22,17 +22,26 @@ LISTIMG = listdir(SRC_IMG)
 
 csv_list = listdir(DT_DIR+'/'+GTYPE)
 
-print(csv_list)
+#print(csv_list)
+
+for filecsv in csv_list:
+    with open (filecsv) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=';')
+        line_count = 0
+        for row in csv_reader:
+            IDREPORT = {row[0]}
+            EMAIL = {row[1]}
+            TITLE = {row[3]}
+            PERIODIC = 'per'+{row[7]}
+            print(IDREPORT)
 
 
-# pdf = FPDF('P','mm','A4')
-# pdf.add_page()
-# pdf.set_font("Arial", size=12)
+pdf = FPDF('P','mm','A4')
+pdf.add_page()
+pdf.set_font("Arial", size=12)
 
-# ### TEXT CENTER ###
-# pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
-
-
+### TEXT CENTER ###
+pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
 
 
 
@@ -43,8 +52,10 @@ print(csv_list)
 
 
 
-### OUTPUT ###
-# pdf.output("/mnt/d/LARAVEL/simple_demo.pdf")
+
+
+## OUTPUT ###
+pdf.output("/mnt/d/LARAVEL/simple_demo.pdf")
 
 
 
