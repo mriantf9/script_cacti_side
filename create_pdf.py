@@ -1,9 +1,12 @@
 #!/usr/bin/python3.8
 
 from fpdf import FPDF
+import os
 from os import listdir
 import sys
 import csv
+import subprocess
+
 
 ##FOR FILTER##
 import glob
@@ -19,7 +22,7 @@ SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
 GTYPE = sys.argv[1]
 
-LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
+#LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
 
 csv_list = listdir(DT_DIR+'/'+GTYPE)
 
@@ -34,7 +37,10 @@ for filecsv in csv_list:
             IDREPORT = row[0]
             EMAIL = row[1]
             TITLE = row[3]
+            RRDTITLE = row[6]
             PERIODIC = row[7]
+           
+
 
 
 
