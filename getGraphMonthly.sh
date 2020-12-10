@@ -178,7 +178,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 		COMMENT:"From ${L_START} To ${L_END}\c" \
 		COMMENT:"  \n" \
 		--color BACK#F3F3F3 \
-		-color CANVAS#FDFDFD \
+		--color CANVAS#FDFDFD \
 		--color SHADEA#CBCBCB \
 		--color SHADEB#999999 \
 		--color FONT#000000 \
