@@ -21,7 +21,7 @@ SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
 GTYPE = sys.argv[1]
 
-#LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
+LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
 
 csv_list = listdir(DT_DIR+'/'+GTYPE)
 
@@ -38,9 +38,12 @@ for filecsv in csv_list:
             TITLE = row[3]
             RRDTITLE = row[6]
             PERIODIC = row[7]
-            list_img = os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)
+            list_img = [os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)]
             for imglist in list_img:
-                pdf.add_page()
-                pdf.set_font("Arial", size=12)
-                pdf.image(imglist,x=50,y=100,w=20,h=5)
-            pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F'
+                #subprocess.call(['/bin/grep', imglist])
+                print(imglist)
+                #exit()
+                #pdf.add_page()
+                #pdf.set_font("Arial", size=12)
+                #pdf.image(imglist,x=50,y=100,w=20,h=5)
+            #pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F')
