@@ -39,7 +39,9 @@ for filecsv in csv_list:
             TITLE = row[3]
             RRDTITLE = row[6]
             PERIODIC = row[7]
-           
+            list_img = os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)
+            print(list_img)
+            exit()
 
 
 
