@@ -40,13 +40,13 @@ for filecsv in csv_list:
                 RRDTITLE = row[6]
                 PERIODIC = row[7]
                 list_img = [os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)]
-                else:
-                    break
-                for imglist in list_img:
-                    #subprocess.call(['/bin/grep', imglist])
-                    print(imglist)
-                    #exit()
-                    #pdf.add_page()
-                    #pdf.set_font("Arial", size=12)
-                    #pdf.image(imglist,x=50,y=100,w=20,h=5)
-                #pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F')
+            else:\
+                break
+            for imglist in list_img:
+                #subprocess.call(['/bin/grep', imglist])
+                print(imglist)
+                #exit()
+                #pdf.add_page()
+                #pdf.set_font("Arial", size=12)
+                #pdf.image(imglist,x=50,y=100,w=20,h=5)
+            :#pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F')
