@@ -6,6 +6,7 @@ import sys
 import csv
 import subprocess
 
+
 ##FOR FILTER##
 import glob
 
@@ -35,16 +36,15 @@ for filecsv in csv_list:
             IDREPORT = row[0]
             EMAIL = row[1]
             TITLE = row[3]
-            PERIODIC = "per"+row[7]
-            #print(PERIODIC)
+            PERIODIC = row[7]
 
 
 
-#pdf.add_page()
-#pdf.set_font("Arial", size=12)
+pdf.add_page()
+pdf.set_font("Arial", size=12)
 
 ### TEXT CENTER ###
-#pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
+pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
 
 
 
@@ -59,6 +59,7 @@ for filecsv in csv_list:
 
 ## OUTPUT ###
 pdf.output("/mnt/d/LARAVEL/simple_demo.pdf")
+
 
 
 
