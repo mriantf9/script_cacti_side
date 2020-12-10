@@ -44,7 +44,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 	  PERIODIC=`echo $line | awk -F';' '{print $8}'`
 	  
 	  
-	  /usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_${REPORT_ID}_${GTYPE}_${FILENAME}.png \
+	  /usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_${REPORT_ID}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
 		--imgformat=PNG \
 		--start="${INTERVAL}" \
 		--end="${NOW}" \

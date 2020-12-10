@@ -51,7 +51,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 			j=$(($i+86400))
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
-			/usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_${REPORT_ID}_${GTYPE}_${FILENAME}.png \
+			/usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_${REPORT_ID}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
 			--imgformat=PNG \
 			--start="${i}" \
 			--end="${j}" \
@@ -110,7 +110,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 			j=$(($i+518400))
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
-			/usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_${REPORT_ID}_${GTYPE}_${FILENAME}.png \
+			/usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_${REPORT_ID}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
 			--imgformat=PNG \
 			--start="${i}" \
 			--end="${j}" \
@@ -161,7 +161,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 			GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s' 
 		done
 	  else
-	    /usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${REPORT_ID}_${DATE_FN}_${GTYPE}_${FILENAME}.png \
+	    /usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_${REPORT_ID}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
 		--imgformat=PNG \
 		--start="${INTERVAL}" \
 		--end="${NOW}" \
