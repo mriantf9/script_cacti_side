@@ -1,12 +1,13 @@
 <?php
 
+require('fpdf.php');
+
 $DIR = ("/home/mriantf/script_skripsi");
 $DT_RP = ($DIR . "/DATA_REPORT/Daily");
 $WORKDIR = ($DIR . "/script");
 $SCRIPTDIR = getCwd();
 $OUTPUT = ($DIR . "/OUTPUT_PDF");
 
-require('$SCRIPTDIR/fpdf.php');
 
 // intance object dan memberikan pengaturan halaman PDF
 $pdf = new FPDF('P', 'mm', 'A4');
