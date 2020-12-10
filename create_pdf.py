@@ -1,5 +1,4 @@
 #!/usr/bin/python3.8
-
 from fpdf import FPDF
 import os
 from os import listdir
@@ -40,31 +39,10 @@ for filecsv in csv_list:
             RRDTITLE = row[6]
             PERIODIC = row[7]
             list_img = os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)
-            print(list_img)
-            exit()
-
-
-
-
-pdf.add_page()
-pdf.set_font("Arial", size=12)
-
+            for imglist in list_img:
+                pdf.add_page()
+                pdf.set_font("Arial", size=12)
+                pdf.image(imglist,x=50,y=100,w=20,h=5)
+            pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F'
 ### TEXT CENTER ###
-pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
-
-
-
-
-
-
-
-
-
-
-
-
-## OUTPUT ###
-pdf.output("/mnt/d/LARAVEL/simple_demo.pdf")
-
-
-
+#pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
