@@ -6,7 +6,7 @@ $WORKDIR= $DIR."/script";
 $SCRIPTDIR= $WORKDIR."/fpdf_script";
 $OUTPUT= $DIR."/OUTPUT_PDF";
 
-echo $OUTPUT
+echo $OUTPUT;
 
 
 
