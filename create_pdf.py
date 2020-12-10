@@ -41,7 +41,7 @@ for filecsv in csv_list:
                 PERIODIC = row[7]
                 list_img = [os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)]
                 else:
-                    continue
+                    break
                 for imglist in list_img:
                     #subprocess.call(['/bin/grep', imglist])
                     print(imglist)
