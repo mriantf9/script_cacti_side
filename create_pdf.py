@@ -4,6 +4,7 @@ from fpdf import FPDF
 from os import listdir
 import sys
 import csv
+import subprocess
 
 ##FOR FILTER##
 import glob
@@ -19,7 +20,7 @@ SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
 GTYPE = sys.argv[1]
 
-LISTIMG = listdir(SRC_IMG)
+LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
 
 csv_list = listdir(DT_DIR+'/'+GTYPE)
 
@@ -34,18 +35,16 @@ for filecsv in csv_list:
             IDREPORT = row[0]
             EMAIL = row[1]
             TITLE = row[3]
-            PERIODIC = row[7]
-            #print(TITLE)
-            for fileimg in LISTIMG:
-                fixfile = glob.glob('*_'+IDREPORT+'_'+GTYPE+'_per'+PERIODIC+'*')
-                print(fixfile)
+            PERIODIC = "per"+row[7]
+            #print(PERIODIC)
 
 
-pdf.add_page()
-pdf.set_font("Arial", size=12)
+
+#pdf.add_page()
+#pdf.set_font("Arial", size=12)
 
 ### TEXT CENTER ###
-pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
+#pdf.cell(200, 10, txt="Welcome to Python!", ln=1, align="C")
 
 
 
