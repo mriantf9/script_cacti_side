@@ -19,7 +19,7 @@ SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
 GTYPE = sys.argv[1]
 
-LISTIMG = listdir(SRC_IMG)
+LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
 
 csv_list = listdir(DT_DIR+'/'+GTYPE)
 
@@ -35,10 +35,7 @@ for filecsv in csv_list:
             EMAIL = row[1]
             TITLE = row[3]
             PERIODIC = row[7]
-            #print(TITLE)
-            for fileimg in LISTIMG:
-                fixfile = glob.glob('*_'+IDREPORT+'_'+GTYPE+'_per'+PERIODIC+'*')
-                print(fixfile)
+
 
 
 pdf.add_page()
