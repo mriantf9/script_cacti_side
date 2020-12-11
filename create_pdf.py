@@ -51,8 +51,8 @@ for filecsv in csv_list:
             else:
                 break
 
-    #filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
-    filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID11*")
+    filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
+    #filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID11*")
 
     #print (filelist)
     count_array = len(filelist) + 1
@@ -62,7 +62,7 @@ for filecsv in csv_list:
 
     for i in range(1, count_array):
         pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-    pdf.output(TITLE+".pdf")
+    pdf.output("ReportID"+IDREPORT+"_"+TITLE+".pdf")
 
     #for imglist in filelist:
         # subprocess.call(['/bin/grep', imglist])
