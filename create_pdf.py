@@ -42,27 +42,23 @@ for filecsv in csv_list:
         csv_reader = csv.reader(csv_file, delimiter=';')
         line_count = 0
         for row in csv_reader:
-            if line_count == 0:
-                IDREPORT = row[0]
-                EMAIL = row[1]
-                TITLE = row[3]
-                RRDTITLE = row[6]
-                PERIODIC = row[7]
-            else:
-                break
+            IDREPORT = row[0]
+            EMAIL = row[2]
+            TITLE = row[3]
+            RRDTITLE = row[6]
+            PERIODIC = row[7]
 
-    filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
-    #filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID11*")
+filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
 
-    #print (filelist)
-    count_array = len(filelist) + 1
-    pdf.add_page()
-    pdf.set_font("Arial", size=12)
-    pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
+#print (filelist)
+count_array = len(filelist) + 1
+pdf.add_page()
+pdf.set_font("Arial", size=12)
+pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
 
-    for i in range(1, count_array):
-        pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-    pdf.output("ReportID"+IDREPORT+"_"+TITLE+".pdf")
+for i in range(1, count_array):
+    pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+pdf.output(TITLE+".pdf")
 
     #for imglist in filelist:
         # subprocess.call(['/bin/grep', imglist])
