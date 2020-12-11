@@ -5,7 +5,7 @@ from os import listdir
 import sys
 import csv
 import subprocess
-
+import fnmatch
 
 ##FOR FILTER##
 import glob
@@ -14,7 +14,7 @@ import glob
 import re
 
 #pdf = FPDF('P','mm','A4')
-pdf = FPDF('L','mm','A4')
+pdf = FPDF('P','mm','A4')
 
 
 ###### DEFINE ######
@@ -51,12 +51,19 @@ for filecsv in csv_list:
             else:
                 break
 #list_img = [os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)]
-for imglist in LISTIMG:
+
+filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
+
+print (filelist)
+
+#for imglist in LISTIMG:
     #subprocess.call(['/bin/grep', imglist])
     #print(imglist)
     #exit()
-    pdf.add_page()
-    pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, txt=TITLE, ln=1, align="C")
-    pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 30, 100)
-pdf.output(TITLE+".pdf", 'F')
+#    pdf.add_page()
+#    pdf.set_font("Arial", size=12)
+#    pdf.cell(200, 10, txt=TITLE, ln=1, align="C")
+#    pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 50, 100)
+#    for i  in range(1,50):
+#       pdf.cell(0, 10, 'Cell Number ' + str(i), 0, 1)
+#pdf.output(TITLE+".pdf", 'F')
