@@ -15,6 +15,11 @@ import re
 
 #pdf = FPDF('P','mm','A4')
 
+cobain = "RO.JAK.IDM2 - Traffic - Te0/1/0.47"
+haha = cobain.replace(" ", "%temp%").replace("_", "-").replace("%temp%", "/")
+
+print(haha)
+exit()
 
 ###### DEFINE ######
 DIR = "/home/mriantf/script_skripsi"
@@ -50,8 +55,6 @@ for filecsv in csv_list:
             PERIODIC = row[7]
             #filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE_RPL+"*")
-            print(filelist)
-            exit()
             count_array = len(filelist) + 1
             pdf.add_page()
             pdf.set_font("Arial", size=12)
