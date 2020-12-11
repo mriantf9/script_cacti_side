@@ -65,4 +65,4 @@ for filecsv in csv_list:
         pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 50, 100)
         # for i  in range(1,50):
         #     pdf.cell(0, 10, 'Cell Number ' + str(i), 0, 1)
-    pdf.output(TITLE+".pdf", 'F')
+pdf.output(TITLE+".pdf", 'F')
