@@ -38,7 +38,7 @@ for filecsv in csv_list:
     pdf = FPDF('P','mm','A4')
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
-        line_count = 0
+        #line_count = 0
         for row in csv_reader:
             IDREPORT = row[0]
             EMAIL = row[2]
@@ -55,11 +55,14 @@ for filecsv in csv_list:
             pdf.add_page()
             pdf.set_font("Arial", size=12)
             pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
-            for i in range(1, count_array):
-                pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-                pdf.image(SRC_IMG+'/'+GTYPE+'/'+filelist, 50, 50, 100)
-            line_count += 1
-    pdf.output("ReportID"+IDREPORT+"_"+TITLE+".pdf")
+            idx = 1
+            for imglist in filelist:
+                pdf.cell(0, 10, idx + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 50, 100)
+                idx += 1
+            # for i in range(1, count_array):
+            #     pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+    pdf.output(OUTPUT_PDF+'/'+GTYPE,"ReportID"+IDREPORT+"_"+TITLE+".pdf")
             
 
 #print (filelist)
