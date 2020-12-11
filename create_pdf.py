@@ -14,7 +14,6 @@ import glob
 import re
 
 #pdf = FPDF('P','mm','A4')
-pdf = FPDF('P','mm','A4')
 
 
 ###### DEFINE ######
@@ -36,6 +35,10 @@ TITLE = ''
 RRDTITLE = ''
 PERIODIC = ''
 
+pdf = FPDF('P','mm','A4')
+pdf.add_page()
+pdf.set_font("Arial", size=12)
+pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
 
 for filecsv in csv_list:
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
@@ -47,18 +50,15 @@ for filecsv in csv_list:
             TITLE = row[3]
             RRDTITLE = row[6]
             PERIODIC = row[7]
+            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
+            count_array = len(filelist) + 1
+            for i in range(1, count_array):
+                pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
 
-filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
+    pdf.output(TITLE+".pdf")
+            
 
 #print (filelist)
-count_array = len(filelist) + 1
-pdf.add_page()
-pdf.set_font("Arial", size=12)
-pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
-
-for i in range(1, count_array):
-    pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-pdf.output(TITLE+".pdf")
 
     #for imglist in filelist:
         # subprocess.call(['/bin/grep', imglist])
