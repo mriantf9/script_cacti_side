@@ -26,7 +26,7 @@ LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
 csv_list = listdir(DT_DIR+'/'+GTYPE)
 
 #print(csv_list)
-
+list_img = ''
 
 for filecsv in csv_list:
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
@@ -41,12 +41,12 @@ for filecsv in csv_list:
                 PERIODIC = row[7]
                 list_img = [os.system("ls "+SRC_IMG+'/'+GTYPE+"| grep ReportID"+IDREPORT)]
             else:
-                continue
-            for imglist in list_img:
-                #subprocess.call(['/bin/grep', imglist])
-                print(imglist)
-                #exit()
-                #pdf.add_page()
-                #pdf.set_font("Arial", size=12)
-                #pdf.image(imglist,x=50,y=100,w=20,h=5)
+                break
+        for imglist in list_img:
+            #subprocess.call(['/bin/grep', imglist])
+            print(imglist)
+            #exit()
+            #pdf.add_page()
+            #pdf.set_font("Arial", size=12)
+            #pdf.image(imglist,x=50,y=100,w=20,h=5)
             #pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf", 'F')
