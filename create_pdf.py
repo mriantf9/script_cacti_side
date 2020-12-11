@@ -57,16 +57,21 @@ for filecsv in csv_list:
     count_array = len(filelist) + 1
     pdf.add_page()
     pdf.set_font("Arial", size=12)
+    pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
 
-    for imglist in filelist:
+    for i in range(1, count_array):
+        pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+    pdf.output(TITLE+".pdf")
+
+    #for imglist in filelist:
         # subprocess.call(['/bin/grep', imglist])
         # print(imglist)
         # exit()
         # count_array = len(filelist) + 1
         # pdf.add_page()
         # pdf.set_font("Arial", size=12)
-        pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
+        #pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
         #pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 50, 100)
-        for i  in range(1, count_array):
-            pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-    pdf.output(TITLE+".pdf")
+        #for i  in range(1, count_array):
+        #    pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+    #pdf.output(TITLE+".pdf")
