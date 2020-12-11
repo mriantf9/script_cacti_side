@@ -55,4 +55,4 @@ for imglist in LISTIMG:
     pdf.add_page()
     pdf.set_font("Arial", size=12)
     pdf.image(SRC_IMG+'/'+GTYPE+imglist, w=500, h=120)
-    pdf.output(OUTPUT_PDF+GTYPE+'/'+TITLE+".pdf",)
+pdf.output(TITLE+".pdf",)
