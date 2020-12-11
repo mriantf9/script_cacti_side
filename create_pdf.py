@@ -13,7 +13,10 @@ import glob
 ##FOR SEPARATE##
 import re
 
-pdf = FPDF('P','mm','A4')
+#pdf = FPDF('P','mm','A4')
+pdf = FPDF()
+
+
 ###### DEFINE ######
 DIR = "/home/mriantf/script_skripsi"
 DT_DIR = DIR+"/DATA_REPORT"
@@ -52,7 +55,9 @@ for imglist in LISTIMG:
     #subprocess.call(['/bin/grep', imglist])
     #print(imglist)
     #exit()
+    pdf.cell(200, 10, txt=TITLE, ln=1, align="C")
     pdf.add_page()
     pdf.set_font("Arial", size=12)
     pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 0, 0)
 pdf.output(TITLE+".pdf",)
+pdf = FPDF(orientation='L', unit='mm')
