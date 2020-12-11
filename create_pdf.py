@@ -50,6 +50,8 @@ for filecsv in csv_list:
             PERIODIC = row[7]
             #filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
+            print(filelist)
+            exit()
             count_array = len(filelist) + 1
             pdf.add_page()
             pdf.set_font("Arial", size=12)
