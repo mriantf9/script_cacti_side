@@ -46,7 +46,7 @@ for filecsv in csv_list:
             EMAIL = row[2]
             TITLE = row[3]
             RRDTITLE = row[6]
-            RRDTITLE_RPL = RRDTITLE.replace(" ", "_").replace("/", "-")
+            RRDTITLE_RPL = RRDTITLE.replace(" ", "%temp%").replace("_", "-").replace("%temp%", "/")
             PERIODIC = row[7]
             #filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE_RPL+"*")
