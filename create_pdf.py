@@ -34,8 +34,6 @@ TITLE = ''
 RRDTITLE = ''
 PERIODIC = ''
 
-pdf = FPDF('P','mm','A4')
-
 for filecsv in csv_list:
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
@@ -53,6 +51,7 @@ for filecsv in csv_list:
             # print(filelist)
             # exit()
             count_array = len(filelist) + 1
+            pdf = FPDF('P','mm','A4')
             pdf.add_page()
             pdf.set_font("Arial", size=12)
             pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
