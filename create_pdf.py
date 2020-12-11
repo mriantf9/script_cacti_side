@@ -59,7 +59,7 @@ for filecsv in csv_list:
         # subprocess.call(['/bin/grep', imglist])
         # print(imglist)
         # exit()
-        count_array = len(filelist)
+        count_array = len(filelist) + 1
         pdf.add_page()
         pdf.set_font("Arial", size=12)
         pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
