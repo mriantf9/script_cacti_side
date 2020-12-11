@@ -54,7 +54,7 @@ for filecsv in csv_list:
             count_array = len(filelist) + 1
             pdf.add_page()
             pdf.set_font("Arial", size=12)
-            pdf.cell(190, 10, txt=TITLE, ln=3, align="C")
+            pdf.cell(190, 10, txt=TITLE, ln=6, align="C")
             idx = 1
             for imglist in filelist:
                 path = SRC_IMG+'/'+GTYPE+'/'+imglist
