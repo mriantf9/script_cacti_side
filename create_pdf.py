@@ -58,6 +58,6 @@ for imglist in LISTIMG:
     pdf.add_page()
     pdf.set_font("Arial", size=12)
     pdf.cell(200, 10, txt=TITLE, ln=1, align="C")
-    pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 0, 0)
-pdf.output(TITLE+".pdf",)
+    pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 10, 30, 100)
+pdf.output(TITLE+".pdf", 'F')
 pdf = FPDF(orientation='L', unit='mm')
