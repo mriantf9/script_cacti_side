@@ -35,6 +35,7 @@ RRDTITLE = ''
 PERIODIC = ''
 
 for filecsv in csv_list:
+    pdf = FPDF('P','mm','A4')
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         line_count = 0
@@ -51,14 +52,13 @@ for filecsv in csv_list:
             # print(filelist)
             # exit()
             count_array = len(filelist) + 1
-            pdf = FPDF('P','mm','A4')
             pdf.add_page()
             pdf.set_font("Arial", size=12)
             pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
             for i in range(1, count_array):
                 pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
             line_count += 1
-        pdf.output("ReportID"+IDREPORT+"_"+TITLE+".pdf")
+    pdf.output("ReportID"+IDREPORT+"_"+TITLE+".pdf")
             
 
 #print (filelist)
