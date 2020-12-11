@@ -58,8 +58,6 @@ for filecsv in csv_list:
             idx = 1
             for imglist in filelist:
                 pdf.cell(0, 10, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-                pdf.cell(0, 0, pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist,50, 50,), 0, 1, 'C')
-                # pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 50, 100)
                 idx += 1
             # for i in range(1, count_array):
             #     pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
