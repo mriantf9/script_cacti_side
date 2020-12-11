@@ -59,7 +59,7 @@ for filecsv in csv_list:
             for i in range(1, count_array):
                 pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
 
-pdf.output(TITLE+".pdf")
+        pdf.output("ReportID"+IDREPORT+"_"+TITLE+".pdf")
             
 
 #print (filelist)
