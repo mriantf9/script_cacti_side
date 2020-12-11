@@ -57,7 +57,7 @@ for filecsv in csv_list:
             pdf.cell(190, 10, txt=TITLE, ln=1, align="C")
             idx = 1
             for imglist in filelist:
-                pdf.cell(0, 10, idx + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+                pdf.cell(0, 10, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 50, 100)
                 idx += 1
             # for i in range(1, count_array):
