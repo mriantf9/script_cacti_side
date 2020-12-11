@@ -16,9 +16,10 @@ import re
 #pdf = FPDF('P','mm','A4')
 
 cobain = "RO.JAK.IDM2 - Traffic - Te0/1/0.47"
-haha = cobain.replace(" ", "%temp%").replace("_", "-").replace("%temp%", "/")
+haha = cobain.replace(" ", "_")
+hehe = haha.replace("/", "-")
 
-print(haha)
+print(hehe)
 exit()
 
 ###### DEFINE ######
