@@ -51,7 +51,8 @@ for filecsv in csv_list:
             else:
                 break
 
-    filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
+    #filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID"+IDREPORT+"*")
+    filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*ReportID11*")
 
     #print (filelist)
     count_array = len(filelist) + 1
