@@ -52,7 +52,7 @@ for imglist in LISTIMG:
     #subprocess.call(['/bin/grep', imglist])
     #print(imglist)
     #exit()
-    #pdf.add_page()
+    pdf.add_page()
     pdf.set_font("Arial", size=12)
     pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 0, 0)
 pdf.output(TITLE+".pdf",)
