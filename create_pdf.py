@@ -62,7 +62,7 @@ for filecsv in csv_list:
                 idx += 1
             # for i in range(1, count_array):
             #     pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-    pdf.output("/home/mriantf/script_skripsi/OUTPUT_PDF/Monthly/","ReportID"+IDREPORT+"_"+TITLE+".pdf")
+    pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+TITLE+".pdf")
             
 
 #print (filelist)
