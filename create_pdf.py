@@ -67,7 +67,7 @@ for filecsv in csv_list:
                 pdf.cell(210, 10, txt=TITLE, ln=6, align="C")
                 pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
-                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 100, 100, 170, 70)
+                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 70, 70, 180, 80)
                 # pdf.cell(100, 10, txt="{}".format(path), ln=1)
                 idx += 1
             # for i in range(1, count_array):
