@@ -20,7 +20,7 @@ SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
 GTYPE = sys.argv[1]
 
-templatxls = SCRIPT+"/excel_tmp.xlsx"
+templatexls = SCRIPT+"/excel_tmp.xlsx"
 book = openpyxl.load_workbook(templatexls)
 ws = book.active
 # all_sheet = book.sheetnames
