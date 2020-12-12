@@ -42,7 +42,7 @@ for filecsv in csv_list:
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
             count_array = len(filelist) + 1
             for imglist in filelist:
-                ws['A1'] = "hahaha"
+                ws['A1'] = imglist
     book.save(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+TITLE+".xlsx")
 
 
