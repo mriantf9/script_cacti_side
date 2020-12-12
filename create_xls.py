@@ -40,15 +40,20 @@ for filecsv in csv_list:
             RRDTITLE3 = RRDTITLE2.replace("/","-")
             PERIODIC = row[7]
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
-            count_array = len(filelist) + 1
+            count_array = len(filelist)+7
             idx = 1
             for imglist in filelist:
                 img = Image(SRC_IMG+'/'+GTYPE+'/'+imglist)
-                for col in range(7, count_array):
-                    ws['A'+col] = imglist
-                    ws.add_image(img, 'B'+col)
+                for i in range(7, count_array):
+                    cellg = i+1
+                    ws['A'+i] = idx + ". Traffic Pemakaian " + RRDTITLE3
+                    
+                # for col in range(7, count_array):
+                #     ws['A'+col] = imglist
+                #     ws.add_image(img, 'B2')
 
                 #ws['A1'] = imglist
+                #ws.add_image(img, 'B2')
                 idx += 1
     book.save(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+TITLE+".xlsx")
 
