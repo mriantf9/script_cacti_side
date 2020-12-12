@@ -57,17 +57,17 @@ for filecsv in csv_list:
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
             # print(filelist)
             # exit()
-            pdf.add_page()
+            # pdf.add_page()
             count_array = len(filelist) + 1
-            pdf.set_font("Arial", size=12)
-            pdf.cell(190, 10, txt=TITLE, ln=6, align="C")
             idx = 1
             for imglist in filelist:
                 path = SRC_IMG+'/'+GTYPE+'/'+imglist
                 pdf.add_page()
-                pdf.cell(0, 10, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+                pdf.set_font("Arial", size=15)
+                pdf.cell(210, 10, txt=TITLE, ln=6, align="C")
+                pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
-                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 70, 100, 100)
+                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 0, 0, 159, 67)
                 # pdf.cell(100, 10, txt="{}".format(path), ln=1)
                 idx += 1
             # for i in range(1, count_array):
