@@ -44,10 +44,8 @@ for filecsv in csv_list:
             idx = 1
             for imglist in filelist:
                 img = Image(SRC_IMG+'/'+GTYPE+'/'+imglist)
-                for i in range(7, count_array):
-                    cellg = i+1
-                    ws['A'+i] = idx + ". Traffic Pemakaian " + RRDTITLE3
-                    
+                ws['A6'] = imglist
+                ws.add_image(img, 'B7')
                 # for col in range(7, count_array):
                 #     ws['A'+col] = imglist
                 #     ws.add_image(img, 'B2')
