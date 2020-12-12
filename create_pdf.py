@@ -64,10 +64,10 @@ for filecsv in csv_list:
                 path = SRC_IMG+'/'+GTYPE+'/'+imglist
                 pdf.add_page()
                 pdf.set_font("Arial", size=15)
-                pdf.cell(210, 10, txt=TITLE, ln=6, align="C")
-                pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+                pdf.cell(350, 20, txt=TITLE, ln=6, align="C")
+                pdf.cell(0, 40, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
-                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 60, 60, 200, 100)
+                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 60, 190, 80)
                 # pdf.cell(100, 10, txt="{}".format(path), ln=1)
                 idx += 1
             # for i in range(1, count_array):
