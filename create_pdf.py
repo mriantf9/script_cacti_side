@@ -26,6 +26,11 @@ LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
 
 csv_list = listdir(DT_DIR+'/'+GTYPE)
 
+today = datetime.date.today()
+first = today.replace(day=1)
+lastMonth = first - datetime.timedelta(days=1)
+LAST_MONTH = lastMonth.strftime("%B %Y")
+
 #print(csv_list)
 list_img = ''
 IDREPORT = ''
@@ -35,7 +40,7 @@ RRDTITLE = ''
 PERIODIC = ''
 
 for filecsv in csv_list:
-    pdf = FPDF('P','mm','A4')
+    pdf = FPDF('L','mm','Letter')
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         #line_count = 0
@@ -60,7 +65,8 @@ for filecsv in csv_list:
                 path = SRC_IMG+'/'+GTYPE+'/'+imglist
                 pdf.cell(0, 10, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
-                pdf.cell(100, 10, txt="{}".format(path), ln=1)
+                pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 50, 50, 100)
+                # pdf.cell(100, 10, txt="{}".format(path), ln=1)
                 idx += 1
             # for i in range(1, count_array):
             #     pdf.cell(0, 10, str(i) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
