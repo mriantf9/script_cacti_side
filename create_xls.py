@@ -41,10 +41,15 @@ for filecsv in csv_list:
             PERIODIC = row[7]
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
             count_array = len(filelist) + 1
+            idx = 1
             for imglist in filelist:
                 img = Image(SRC_IMG+'/'+GTYPE+'/'+imglist)
-                ws['A1'] = imglist
-                ws.add_image(img, 'B2')
+                for col in range(7, count_array):
+                    ws.cell(column=col, row=1, value={}.format(idx+". Traffic Pemakaian "+RRDTITLE3))
+                    ws.add_image(img, 'B2')
+
+                #ws['A1'] = imglist
+                idx += 1
     book.save(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+TITLE+".xlsx")
 
 
