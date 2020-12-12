@@ -39,8 +39,8 @@ for filecsv in csv_list:
             RRDTITLE2 = RRDTITLE.replace(" ", "_")
             RRDTITLE3 = RRDTITLE2.replace("/","-")
             PERIODIC = row[7]
-            count_array = len(filelist) + 1
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
+            count_array = len(filelist) + 1
             for imglist in filelist:
                 ws['A1'] = "hahaha"
     book.save(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+TITLE+".xlsx")
