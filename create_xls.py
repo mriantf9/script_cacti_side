@@ -15,7 +15,7 @@ import datetime
 ###### DEFINE ######
 DIR = "/home/mriantf/script_skripsi"
 DT_DIR = DIR+"/DATA_REPORT"
-SCRIPT = DIR+"script"
+SCRIPT = DIR+"/script"
 SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
 GTYPE = sys.argv[1]
