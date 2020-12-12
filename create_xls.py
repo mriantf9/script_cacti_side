@@ -43,6 +43,7 @@ for filecsv in csv_list:
             count_array = len(filelist) + 1
             for imglist in filelist:
                 ws['A1'] = imglist
+                ws.add_image(imglist, 'B2')
     book.save(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+TITLE+".xlsx")
 
 
