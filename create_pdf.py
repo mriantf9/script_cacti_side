@@ -64,11 +64,10 @@ for filecsv in csv_list:
                 pdf.add_page()
                 pdf.set_font("Times", size=15)
                 pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
-                if GTYPE == "Weekly":
-                    dt = os.system("date -d 'now-7days' +%d %B %Y")
-                    pdf.cell(250, 4, dt, ln=1, align="C")
-                else:
+                if GTYPE == "Monthly":
                     pdf.cell(250, 4, txt=LAST_MONTH, ln=1, align="C")
+                else:
+                    pdf.cell(250, 4, txt="hahahah", ln=1, align="C")
                 pdf.cell(250, 4, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
                 pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
