@@ -67,7 +67,7 @@ for filecsv in csv_list:
                 if GTYPE == "Monthly":
                     pdf.cell(250, 4, txt=LAST_MONTH, ln=1, align="C")
                 else:
-                    pdf.cell(250, 4, txt="hahahah", ln=1, align="C")
+                    pdf.cell(250, 2, txt="hahahah", ln=1, align="C")
                 pdf.cell(250, 4, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
                 pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
