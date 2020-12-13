@@ -9,6 +9,7 @@ DT_RP="${DIR}/DATA_REPORT/Daily"
 WORKDIR="${DIR}/script"
 OUTPUT="${DIR}/OUTPUT"
 RRALOC="/var/lib/cacti/rra"
+GTYPE=""
 
 ###################################
 ###################################
