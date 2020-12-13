@@ -9,7 +9,6 @@ DT_RP="${DIR}/DATA_REPORT/Monthly"
 WORKDIR="${DIR}/script"
 OUTPUT="${DIR}/OUTPUT"
 RRALOC="/var/lib/cacti/rra"
-GTYPE=""
 
 ###################################
 ###################################
@@ -218,6 +217,6 @@ for j in `cat ${WORKDIR}/tmp_list`
 done
 rm -rf ${WORKDIR}/tmp_list
 
-/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py $GTYPE
+/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly"
 
 
