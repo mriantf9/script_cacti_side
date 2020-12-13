@@ -65,10 +65,10 @@ for filecsv in csv_list:
                 pdf.set_font("Times", size=15)
                 pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
                 if GTYPE == "Monthly":
-                    pdf.cell(250, 4, txt=LAST_MONTH, ln=1, align="C")
+                    pdf.cell(250, 2, txt=LAST_MONTH, ln=2, align="C")
                 else:
-                    pdf.cell(250, 2, txt="hahahah", ln=1, align="C")
-                pdf.cell(250, 4, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
+                    pdf.cell(250, 2, txt="hahahah", ln=2, align="C")
+                pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
                 pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
                 pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 45, 60, 190, 80)
