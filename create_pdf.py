@@ -64,17 +64,6 @@ for filecsv in csv_list:
                 pdf.add_page()
                 pdf.set_font("Times", size=15)
                 pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
-                if GTYPE == "Daily":
-                    ystrd = os.system('date -d now-1days "+%d %B %Y"')
-                    pdf.cell(250, 20, txt=ystrd, ln=6, align="C")
-                elif GTYPE == "Weekly":
-                    lstweek = os.system('date -d now-7days "+%d %B %Y"')
-                    tdy = os.system("date -d now '+%d %B %Y'")
-                    pdf.cell(250, 20, txt="From "+lstweek+" - "+tdy, ln=6, align="C")
-                elif GTYPE == "Monthly":
-                    pdf.cell(250, 20, txt=LAST_MONTH, ln=6, align="C")
-                else:
-                    break
                 pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
                 pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 45, 60, 190, 80)
