@@ -47,6 +47,7 @@ for filecsv in csv_list:
         #line_count = 0
         for row in csv_reader:
             IDREPORT = row[0]
+            REPORT="ReportID"+IDREPORT
             EMAIL = row[2]
             TITLE = row[3]
             PDFNAME = TITLE.replace(" ", "_")
@@ -54,7 +55,7 @@ for filecsv in csv_list:
             RRDTITLE2 = RRDTITLE.replace(" ", "_")
             RRDTITLE3 = RRDTITLE2.replace("/","-")
             PERIODIC = row[7]
-            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
+            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*")
 
             
             #count_array = len(filelist) + 1
@@ -68,6 +69,7 @@ for filecsv in csv_list:
                     pdf.cell(250, 2, txt=LAST_MONTH, ln=2, align="C")
                 else:
                     pdf.cell(250, 2, txt="hahahah", ln=2, align="C")
+                pdf.ln(3)
                 pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
                 pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
