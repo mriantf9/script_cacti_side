@@ -54,7 +54,6 @@ IDREPORT = ''
 EMAIL = ''
 TITLE = ''
 RRDTITLE = ''
-GTYPE = ''
 PERIODIC = ''
 
 for filecsv in csv_list:
