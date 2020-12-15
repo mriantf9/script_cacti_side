@@ -54,6 +54,7 @@ IDREPORT = ''
 EMAIL = ''
 TITLE = ''
 RRDTITLE = ''
+GTYPE = ''
 PERIODIC = ''
 
 for filecsv in csv_list:
@@ -97,3 +98,7 @@ for filecsv in csv_list:
     pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
             
 
+try:
+    os.rmdir(DT_DIR+'/'+GTYPE)
+except OSError as e:
+    print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
