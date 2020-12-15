@@ -33,20 +33,20 @@ csv_list = listdir(DT_DIR+'/'+GTYPE)
 ##################################
 TODAY = datetime.now()
 lastMonth = TODAY - timedelta(days=31)
-LAST_MONTH = lastMonth.strftime("%d %B %Y %H:%M:%S")
+LAST_MONTH = lastMonth.strftime("%d %B %Y")
 
 
 #################################
 ######### LAST WEEK #############
 #################################
 last_7day = datetime.now() - timedelta(days=7)
-LAST_WEEK = last_7day.strftime("%d %B %Y %H:%M:%S")
+LAST_WEEK = last_7day.strftime("%d %B %Y")
 
 #################################
 ######### LAST 24 #############
 #################################
 last_24 = datetime.now() - timedelta(hours=24)
-LAST_24HOURS = last_24.strftime("%d %B %Y %H:%M:%S")
+LAST_24HOURS = last_24.strftime("%d %B %Y")
 
 
 list_img = ''
