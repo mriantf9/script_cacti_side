@@ -102,7 +102,7 @@ for filecsv in csv_list:
 
 PDFLIST = listdir(OUTPUT_PDF+'/'+GTYPE)
 for PDFFILELIST in PDFLIST:
-    os.system('/usr/bin/bash '+DIR+'/script running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
+    os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
 
 
             
