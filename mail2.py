@@ -33,4 +33,4 @@ server.sendmail(msg['From'], msg['To'], msg.as_string())
  
 server.quit()
  
-print "successfully sent email to %s:" % (msg['To'])
+print ("successfully sent email to %s:" % (msg['To']))
