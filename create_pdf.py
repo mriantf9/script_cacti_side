@@ -56,7 +56,9 @@ for filecsv in csv_list:
             RRDTITLE3 = RRDTITLE2.replace("/","-")
             PERIODIC = row[7]
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*")
-
+            
+            #print(filelist)
+            #exit()
             
             #count_array = len(filelist) + 1
             idx = 1
