@@ -45,7 +45,7 @@ Your Support
 msg.attach(MIMEText(body, 'plain'))
 # Lampiran, sesuaikan nama filename dengan nama di attachment
 filename = FILEPDF
-attachment = open(OUTPUT_PDF+'/'+GTYPE, "rb")
+attachment = open(OUTPUT_PDF+'/'+GTYPE+'/'+FILEPDF, "rb")
  
 part = MIMEBase('application', 'octet-stream')
 part.set_payload((attachment).read())
