@@ -17,7 +17,7 @@ Thank You
 
 #The mail addresses and password
 sender_address = 'mriantfajaryanto@gmail.com'
-sender_pass = 'testing@10'
+sender_pass = '@Testing@10'
 receiver_address = 'mriantf@gmail.com'
 
 #Setup the MIME

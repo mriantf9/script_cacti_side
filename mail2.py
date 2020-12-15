@@ -11,7 +11,7 @@ msg = MIMEMultipart()
 message = "Thank you"
  
 # setup the parameters of the message
-password = "testing@10"
+password = "@Testing@10"
 msg['From'] = "mriantfajaryanto@gmail.com"
 msg['To'] = "mriantf@gmail.com"
 msg['Subject'] = "Test email with python"
