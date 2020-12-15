@@ -56,6 +56,7 @@ EMAIL = ''
 TITLE = ''
 RRDTITLE = ''
 PERIODIC = ''
+REPORT = ''
 
 for filecsv in csv_list:
     pdf = FPDF('L','mm','Letter')
@@ -100,5 +101,6 @@ for filecsv in csv_list:
 
 try:
     os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
+    os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/* | grep '+REPORT)
 except OSError as e:
-    print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
+    print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
