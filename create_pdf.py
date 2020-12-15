@@ -85,7 +85,7 @@ for filecsv in csv_list:
             if GTYPE == "Monthly":
                 pdf.cell(250, 2, txt=LAST_MONTH, ln=2, align="C")
             elif GTYPE == "Weekly" :
-                pdf.cell(250, 2 txt="From "+LAST_WEEK+" - "+TODAY, ln=2, align="C")
+                pdf.cell(250, 2, txt="From "+LAST_WEEK+" - "+TODAY, ln=2, align="C")
             else:
                 pdf.cell(250, 2, txt=LAST_24HOURS, ln=2, align="C")
             pdf.ln(3)
