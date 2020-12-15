@@ -72,9 +72,9 @@ for filecsv in csv_list:
                 pdf.cell(250, 2, txt="hahahah", ln=2, align="C")
             pdf.ln(3)
             pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
-            pdf.cell(0, 30, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+            pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
             pdf.ln(10)
-            pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 45, 60, 190, 80)
+            pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 45, 65, 190, 80)
             idx += 1
     pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
             
