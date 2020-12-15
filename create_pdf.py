@@ -35,6 +35,7 @@ TODAY = datetime.now()
 lastMonth = TODAY - timedelta(days=31)
 LAST_MONTH = lastMonth.strftime("%d %B %Y")
 
+tdy = TODAY.strftime("%d %B %Y")
 
 #################################
 ######### LAST WEEK #############
@@ -83,11 +84,11 @@ for filecsv in csv_list:
             pdf.set_font("Times", size=15)
             pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
             if GTYPE == "Monthly":
-                pdf.cell(250, 2, txt="From "+LAST_MONTH+" - "+TODAY, ln=2, align="C")
+                pdf.cell(250, 2, "From "+str(LAST_MONTH)+" - "+str(tdy), ln=2, align="C")
             elif GTYPE == "Weekly" :
-                pdf.cell(250, 2, txt="From "+LAST_WEEK+" - "+TODAY, ln=2, align="C")
+                pdf.cell(250, 2, "From "+str(LAST_WEEK)+" - "+str(tdy), ln=2, align="C")
             else:
-                pdf.cell(250, 2, txt="From "+LAST_24HOURS+" - "+TODAY, ln=2, align="C")
+                pdf.cell(250, 2, "From "+ str(LAST_24HOURS)+" - "+str(tdy), ln=2, align="C")
             pdf.ln(3)
             pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
             pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
@@ -98,6 +99,6 @@ for filecsv in csv_list:
             
 
 try:
-    os.rmdir(DT_DIR+'/'+GTYPE)
+    os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
 except OSError as e:
     print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
