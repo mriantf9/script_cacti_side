@@ -97,6 +97,14 @@ for filecsv in csv_list:
             pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 45, 65, 190, 80)
             idx += 1
     pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
+
+
+
+PDFLIST = listdir(OUTPUT_PDF+'/'+GTYPE)
+for PDFFILELIST in PDFLIST:
+    os.system("/usr/bin/python3.8 "+DIR+'/script sent_mail.py '+EMAIL+" "+PDFFILELIST+" "+GTYPE)
+
+
             
 
 # try:

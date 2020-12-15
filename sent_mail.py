@@ -1,49 +1,62 @@
-#!/usr/bin/python3.8
-
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+import os
+from os import listdir
+import sys
 
+###### DEFINE ######
+DIR = "/home/mriantf/script_skripsi"
+DT_DIR = DIR+"/DATA_REPORT"
+SRC_IMG= DIR+"/OUTPUT"
+OUTPUT_PDF = DIR+"/OUTPUT_PDF"
+EMAIL = sys.argv[1]
+FILEPDF = sys.argv[2]
+GTYPE = sys.argv[3]
 
-mail_content = '''Hello,
-This is a test mail.
-In this mail we are sending some attachments.
-The mail is sent using Python SMTP library.
-Thank You
+fromaddr = "sentpython@gmail.com"
+toaddr = EMAIL
+ 
+msg = MIMEMultipart()
+ 
+msg['From'] = fromaddr
+msg['To'] = toaddr
+msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION"
+ 
+body = '''Dear Customer,
+As I attached, Report Utilization from your service.
+
+If you need more detail question, Please contact our support
+
+Email: support@riantf.id
+Phone: +6221 - 8829-0123-00
+
+Thank You,
+Best Regards
+
+Your Support
 '''
+ 
+msg.attach(MIMEText(body, 'plain'))
+# Lampiran, sesuaikan nama filename dengan nama di attachment
+filename = FILEPDF
+attachment = open(OUTPUT_PDF+'/'+GTYPE, "rb")
+ 
+part = MIMEBase('application', 'octet-stream')
+part.set_payload((attachment).read())
+encoders.encode_base64(part)
+part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+ 
+msg.attach(part)
+ 
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login(fromaddr, "@Testing@10")
+text = msg.as_string()
+server.sendmail(fromaddr, toaddr, text)
+server.quit()
 
 
-#The mail addresses and password
-sender_address = 'sentpython@gmail.com'
-sender_pass = '@Testing@10'
-receiver_address = 'mriantf@gmail.com'
-
-#Setup the MIME
-message = MIMEMultipart()
-message['From'] = sender_address
-message['To'] = receiver_address
-message['Subject'] = 'A test mail sent by Python. It has an attachment.'
-
-
-#The body and the attachments for the mail
-message.attach(MIMEText(mail_content, 'plain'))
-attach_file_name = 'getGraph.sh'
-attach_file = open(attach_file_name, 'rb') # Open the file as binary mode
-payload = MIMEBase('application', 'octate-stream')
-payload.set_payload((attach_file).read())
-encoders.encode_base64(payload)
-
-
-#add payload header with filename
-payload.add_header('Content-Decomposition', 'attachment', filename=attach_file_name)
-message.attach(payload)
-#Create SMTP session for sending the mail
-session = smtplib.SMTP('smtp.gmail.com', 587) #use gmail with port
-session.starttls() #enable security
-session.login(sender_address, sender_pass) #login with mail_id and password
-text = message.as_string()
-session.sendmail(sender_address, receiver_address, text)
-session.quit()
 print('Mail Sent')
