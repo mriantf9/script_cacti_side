@@ -33,20 +33,20 @@ csv_list = listdir(DT_DIR+'/'+GTYPE)
 ##################################
 TODAY = datetime.now()
 lastMonth = TODAY - timedelta(days=31)
-LAST_MONTH = lastMonth.strftime("%B %Y")
+LAST_MONTH = lastMonth.strftime("%d %B %Y %H:%M:%S")
 
 
 #################################
 ######### LAST WEEK #############
 #################################
 last_7day = datetime.now() - timedelta(days=7)
-LAST_WEEK = last_7day.strftime("%d %B %Y")
+LAST_WEEK = last_7day.strftime("%d %B %Y %H:%M:%S")
 
 #################################
 ######### LAST 24 #############
 #################################
 last_24 = datetime.now() - timedelta(hours=24)
-LAST_24HOURS = last_24.strftime("%d %B %Y")
+LAST_24HOURS = last_24.strftime("%d %B %Y %H:%M:%S")
 
 
 list_img = ''
@@ -83,11 +83,11 @@ for filecsv in csv_list:
             pdf.set_font("Times", size=15)
             pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
             if GTYPE == "Monthly":
-                pdf.cell(250, 2, txt=LAST_MONTH, ln=2, align="C")
+                pdf.cell(250, 2, txt="From "+LAST_MONTH+" - "+TODAY, ln=2, align="C")
             elif GTYPE == "Weekly" :
                 pdf.cell(250, 2, txt="From "+LAST_WEEK+" - "+TODAY, ln=2, align="C")
             else:
-                pdf.cell(250, 2, txt=LAST_24HOURS, ln=2, align="C")
+                pdf.cell(250, 2, txt="From "+LAST_24HOURS+" - "+TODAY, ln=2, align="C")
             pdf.ln(3)
             pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
             pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
