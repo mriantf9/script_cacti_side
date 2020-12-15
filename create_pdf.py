@@ -99,8 +99,8 @@ for filecsv in csv_list:
     pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
             
 
-try:
-    os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
-    os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/* | grep '+REPORT)
-except OSError as e:
-    print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
+# try:
+#     os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
+#     os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/* | grep '+REPORT)
+# except OSError as e:
+#     print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
