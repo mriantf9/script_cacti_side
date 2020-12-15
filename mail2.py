@@ -12,7 +12,7 @@ message = "Thank you"
  
 # setup the parameters of the message
 password = "@Testing@10"
-msg['From'] = "mriantfajaryanto@gmail.com"
+msg['From'] = "sentpython@gmail.com"
 msg['To'] = "mriantf@gmail.com"
 msg['Subject'] = "Test email with python"
  

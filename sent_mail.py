@@ -16,7 +16,7 @@ Thank You
 
 
 #The mail addresses and password
-sender_address = 'mriantfajaryanto@gmail.com'
+sender_address = 'sentpython@gmail.com'
 sender_pass = '@Testing@10'
 receiver_address = 'mriantf@gmail.com'
 
