@@ -75,13 +75,11 @@ for filecsv in csv_list:
             PERIODIC = row[7]
         
             REPORT = "ReportID"+IDREPORT
-            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
-
-                
+            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*"+RRDTITLE3+".png")
             #count_array = len(filelist) + 1
             #
             for imglist in filelist:
-                path = SRC_IMG+'/'+GTYPE+'/'+filelist
+                path = SRC_IMG+'/'+GTYPE+'/'+imglist
                 pdf.add_page()
                 pdf.set_font("Times", size=15)
                 pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
