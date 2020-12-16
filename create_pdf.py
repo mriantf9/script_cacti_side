@@ -101,14 +101,15 @@ for filecsv in csv_list:
         ######### SENT MAIL ############
         ################################
         PDFLIST = fnmatch.filter(os.listdir(OUTPUT_PDF+'/'+GTYPE), REPORT+"*")
+        print(PDFLIST)
         for PDFFILELIST in PDFLIST:
            os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
 
 
             
-#try:
-#     os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
-#     os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/*')
-#except OSError as e:
-#     print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
-#     print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
+try:
+     os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
+     os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/*')
+except OSError as e:
+     print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
+     print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
