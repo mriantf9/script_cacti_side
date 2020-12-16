@@ -74,6 +74,8 @@ for filecsv in csv_list:
             PERIODIC = row[7]
         
         REPORT = "ReportID"+IDREPORT
+        print(RRDTITLE3)
+        exit()
         filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*")
         #print(filelist)
             
