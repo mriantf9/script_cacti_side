@@ -80,23 +80,23 @@ for filecsv in csv_list:
                 
             #count_array = len(filelist) + 1
             #
-            #for imglist in filelist:
-            path = SRC_IMG+'/'+GTYPE+'/'+filelist
-            pdf.add_page()
-            pdf.set_font("Times", size=15)
-            pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
-            if GTYPE == "Monthly":
-                pdf.cell(250, 2, "From "+str(LAST_MONTH)+" - "+str(tdy), ln=2, align="C")
-            elif GTYPE == "Weekly" :
-                pdf.cell(250, 2, "From "+str(LAST_WEEK)+" - "+str(tdy), ln=2, align="C")
-            else:
-                pdf.cell(250, 2, "From "+ str(LAST_24HOURS)+" - "+str(tdy), ln=2, align="C")
-            pdf.ln(3)
-            pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
-            pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
-            pdf.ln(10)
-            pdf.image(path, 45, 65, 190, 80)
-            idx += 1
+            for imglist in filelist:
+                path = SRC_IMG+'/'+GTYPE+'/'+filelist
+                pdf.add_page()
+                pdf.set_font("Times", size=15)
+                pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
+                if GTYPE == "Monthly":
+                    pdf.cell(250, 2, "From "+str(LAST_MONTH)+" - "+str(tdy), ln=2, align="C")
+                elif GTYPE == "Weekly" :
+                    pdf.cell(250, 2, "From "+str(LAST_WEEK)+" - "+str(tdy), ln=2, align="C")
+                else:
+                    pdf.cell(250, 2, "From "+ str(LAST_24HOURS)+" - "+str(tdy), ln=2, align="C")
+                pdf.ln(3)
+                pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
+                pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
+                pdf.ln(10)
+                pdf.image(path, 45, 65, 190, 80)
+                idx += 1
     pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
 
     #################################
