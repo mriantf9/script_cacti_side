@@ -1,6 +1,6 @@
 #!/usr/bin/python3.8
 
-
+from datetime import datetime, timedelta
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -21,17 +21,44 @@ GTYPE = sys.argv[3]
 
 fromaddr = "sentpython@gmail.com"
 toaddr = EMAIL
+
+##################################
+######## LAST MONTH ##############
+##################################
+TODAY = datetime.now()
+lastMonth = TODAY - timedelta(days=31)
+LAST_MONTH = lastMonth.strftime("%d %B %Y")
+
+tdy = TODAY.strftime("%d %B %Y")
+
+#################################
+######### LAST WEEK #############
+#################################
+last_7day = datetime.now() - timedelta(days=7)
+LAST_WEEK = last_7day.strftime("%d %B %Y")
+
+#################################
+######### LAST 24 #############
+#################################
+last_24 = datetime.now() - timedelta(hours=24)
+LAST_24HOURS = last_24.strftime("%d %B %Y")
  
 msg = MIMEMultipart()
  
 msg['From'] = fromaddr
 msg['To'] = toaddr
-msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION"
+if GTYPE == "Monthly":
+    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_MONTH
+elif GTYPE == "Weekly":
+    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_WEEK
+else:
+    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_24HOURS
+
  
 body = '''Dear Customer,
 As I attached, Report Utilization from your service.
 
-If you need more detail question, Please contact our support
+If you need detail question, Feel free to contact our support
 
 Email: support@riantf.id
 Phone: +6221 - 8829-0123-00
