@@ -95,14 +95,14 @@ for filecsv in csv_list:
                 pdf.ln(10)
                 pdf.image(path, 45, 65, 190, 80)
                 idx += 1
-    pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
+        pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
 
-    #################################
-    ######### SENT MAIL ############
-    ################################
-    #PDFLIST = listdir(OUTPUT_PDF+'/'+GTYPE)
-    #for PDFFILELIST in PDFLIST:
-    #    os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
+        #################################
+        ######### SENT MAIL ############
+        ################################
+        PDFLIST = fnmatch.filter(os.listdir(OUTPUT_PDF+'/'+GTYPE), REPORT+"*")
+        for PDFFILELIST in PDFLIST:
+           os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
 
 
             
