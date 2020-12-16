@@ -63,6 +63,7 @@ for filecsv in csv_list:
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         #line_count = 0
+        idx = 1
         for row in csv_reader:
             IDREPORT = row[0]
             EMAIL = row[2]
@@ -73,14 +74,14 @@ for filecsv in csv_list:
             RRDTITLE3 = RRDTITLE2.replace("/","-")
             PERIODIC = row[7]
         
-        REPORT = "ReportID"+IDREPORT
-        filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*")
+            REPORT = "ReportID"+IDREPORT
+            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+RRDTITLE3+"*")
 
-            
-        #count_array = len(filelist) + 1
-        idx = 1
-        for imglist in filelist:
-            path = SRC_IMG+'/'+GTYPE+'/'+imglist
+                
+            #count_array = len(filelist) + 1
+            #
+            #for imglist in filelist:
+            path = SRC_IMG+'/'+GTYPE+'/'+filelist
             pdf.add_page()
             pdf.set_font("Times", size=15)
             pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
@@ -94,7 +95,7 @@ for filecsv in csv_list:
             pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
             pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
             pdf.ln(10)
-            pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 45, 65, 190, 80)
+            pdf.image(path, 45, 65, 190, 80)
             idx += 1
     pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
 
