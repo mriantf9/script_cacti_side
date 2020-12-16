@@ -75,7 +75,7 @@ for filecsv in csv_list:
         
         REPORT = "ReportID"+IDREPORT
         filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*")
-
+        #print(filelist)
             
         #count_array = len(filelist) + 1
         idx = 1
@@ -94,22 +94,22 @@ for filecsv in csv_list:
             pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
             pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
             pdf.ln(10)
-            pdf.image(SRC_IMG+'/'+GTYPE+'/'+imglist, 45, 65, 190, 80)
+            pdf.image(path, 45, 65, 190, 80)
             idx += 1
     pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
 
     #################################
     ######### SENT MAIL ############
     ################################
-    PDFLIST = listdir(OUTPUT_PDF+'/'+GTYPE)
-    for PDFFILELIST in PDFLIST:
-        os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
+    #PDFLIST = listdir(OUTPUT_PDF+'/'+GTYPE)
+    #for PDFFILELIST in PDFLIST:
+    #    os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
 
 
             
-try:
-     os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
-     os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/*')
-except OSError as e:
-     print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
-     print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
+#try:
+#     os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
+#     os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/*')
+#except OSError as e:
+#     print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
+#     print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
