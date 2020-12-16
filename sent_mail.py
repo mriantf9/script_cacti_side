@@ -41,7 +41,7 @@ LAST_WEEK = last_7day.strftime("%d %B %Y")
 ######### LAST 24 #############
 #################################
 last_24 = datetime.now() - timedelta(hours=24)
-LAST_24HOURS = last_24.strftime("%d %B %Y")
+LAST_24HOURS = last_24.strftime("%d %B %Y %H:%M:%S")
  
 msg = MIMEMultipart()
  
@@ -50,7 +50,7 @@ msg['To'] = toaddr
 if GTYPE == "Monthly":
     msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_MONTH
 elif GTYPE == "Weekly":
-    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_WEEK
+    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_WEEK + " TO " + tdy
 else:
     msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_24HOURS
 
