@@ -28,6 +28,11 @@ L_END=`date -d @${NOW} '+%Y/%m/%d %H\:%M\:%S'`
 ##################################
 ##################################
 
+
+##################################
+##### CREATE TMP LIST FROM #######
+##### DATE REPORT DIR ############
+##################################
 ls ${DT_RP}/ > ${WORKDIR}/tmp_list
 
 
@@ -42,7 +47,10 @@ for j in `cat ${WORKDIR}/tmp_list`
 	  RRDNAME=`echo $line | awk -F';' '{print $7}'`
 	  FILENAME=`echo $line | awk -F';' '{print $7}' | sed 's/ /_/g' | sed 's/\//-/g'`
 	  PERIODIC=`echo $line | awk -F';' '{print $8}'`
-	  
+
+	  #################################
+	  ####### CREATING GRAPHIC ########
+	  #################################	  
 	  if [ $PERIODIC == "Days" ]
 	  then
 	    for((i=$INTERVAL; i<$NOW; i+=86400))

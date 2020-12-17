@@ -46,7 +46,7 @@ last_7day = datetime.now() - timedelta(days=7)
 LAST_WEEK = last_7day.strftime("%d %B %Y")
 
 #################################
-######### LAST 24 #############
+######### LAST 24 ###############
 #################################
 last_24 = datetime.now() - timedelta(hours=24)
 LAST_24HOURS = last_24.strftime("%d %B %Y")
@@ -60,12 +60,24 @@ RRDTITLE = ''
 PERIODIC = ''
 REPORT = ''
 
+
+######################################
+########### LOOP FILE CSV ############
+######################################
 for filecsv in csv_list:
     pdf = FPDF('L','mm','Letter')
+
+    ###################################
+    ######### OPEN FILE CSV ###########
+    ###################################
     with open (DT_DIR+'/'+GTYPE+'/'+filecsv) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         #line_count = 0
         idx = 1
+
+        ###############################
+        ##### LOOP ROW CSV FILE #######
+        ###############################
         for row in csv_reader:
             IDREPORT = row[0]
             EMAIL = row[2]
@@ -80,8 +92,16 @@ for filecsv in csv_list:
             filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*"+RRDTITLE3+".png")
             #count_array = len(filelist) + 1
             #
+
+            #####################################
+            ###### LOOP IMG IN DIR ##############
+            ##################################### 
             for imglist in filelist:
                 path = SRC_IMG+'/'+GTYPE+'/'+imglist
+
+                #################################
+                ######### CREATE PDF ############
+                #################################
                 pdf.add_page()
                 pdf.set_font("Times", size=15)
                 pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
