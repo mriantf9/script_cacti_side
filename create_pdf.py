@@ -21,6 +21,7 @@ DIR = "/home/mriantf/script_skripsi"
 DT_DIR = DIR+"/DATA_REPORT"
 SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
+ARCHV = DIR+"/ARCHIVE"
 GTYPE = sys.argv[1]
 
 LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
@@ -36,6 +37,7 @@ lastMonth = TODAY - timedelta(days=31)
 LAST_MONTH = lastMonth.strftime("%d %B %Y")
 
 tdy = TODAY.strftime("%d %B %Y")
+datefile = TODAY.strftime("%Y%b%d")
 
 #################################
 ######### LAST WEEK #############
@@ -104,6 +106,7 @@ for filecsv in csv_list:
         print(PDFLIST)
         for PDFFILELIST in PDFLIST:
            os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
+           os.system("mv "+OUTPUT_PDF+'/'+GTYPE+'/'+PDFFILELIST+ " "+ARCHV+'/'+GTYPE+'/'+datefile+"_"+PDFFILELIST)
 
 
             
