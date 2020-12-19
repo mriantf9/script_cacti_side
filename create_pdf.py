@@ -126,11 +126,11 @@ for filecsv in csv_list:
         print(PDFLIST)
         for PDFFILELIST in PDFLIST:
            os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
-           os.system("mv "+OUTPUT_PDF+'/'+GTYPE+'/'+PDFFILELIST+ " "+ARCHV+'/'+GTYPE+'/')
+        #    os.system("mv "+OUTPUT_PDF+'/'+GTYPE+'/'+PDFFILELIST+ " "+ARCHV+'/'+GTYPE+'/')
 
-    try:
-         os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/'+"ReportID_"+IDREPORT+"*")
-         os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/'+REPORT+"*")
-    except OSError as e:
-         print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
-         print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
+    # try:
+    #      os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/'+"ReportID_"+IDREPORT+"*")
+    #      os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/'+REPORT+"*")
+    # except OSError as e:
+    #      print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
+    #      print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
