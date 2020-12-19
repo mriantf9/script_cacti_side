@@ -42,9 +42,9 @@ for j in `cat ${WORKDIR}/tmp_list`
 	  RRDNAME=`echo $line | awk -F';' '{print $7}'`
 	  FILENAME=`echo $line | awk -F';' '{print $7}' | sed 's/ /_/g' | sed 's/\//-/g'`
 	  PERIODIC=`echo $line | awk -F';' '{print $8}'`
+	  PNGNAME=${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png
 	  
-	  
-	  /usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/${FN}_ReportID${REPORT_ID}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
+	  /usr/bin/rrdtool graph ${PNGNAME} \
 		--imgformat=PNG \
 		--start="${INTERVAL}" \
 		--end="${NOW}" \

@@ -89,7 +89,7 @@ for filecsv in csv_list:
             PERIODIC = row[7]
         
             REPORT = "ReportID"+IDREPORT
-            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), "*"+REPORT+"*"+RRDTITLE3+".png")
+            filelist = fnmatch.filter(os.listdir(SRC_IMG+'/'+GTYPE), REPORT+"*"+RRDTITLE3+".png")
             #count_array = len(filelist) + 1
             #
 
@@ -117,22 +117,20 @@ for filecsv in csv_list:
                 pdf.ln(10)
                 pdf.image(path, 45, 65, 190, 80)
                 idx += 1
-        pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+"ReportID"+IDREPORT+"_"+PDFNAME+".pdf")
+        pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+datefile+"_"+REPORT+"_"+PDFNAME+".pdf")
 
         #################################
         ######### SENT MAIL ############
         ################################
-        PDFLIST = fnmatch.filter(os.listdir(OUTPUT_PDF+'/'+GTYPE), REPORT+"*")
+        PDFLIST = fnmatch.filter(os.listdir(OUTPUT_PDF+'/'+GTYPE), datefile+"_"+REPORT+"*")
         print(PDFLIST)
         for PDFFILELIST in PDFLIST:
            os.system("/usr/bin/bash "+DIR+'/script/running_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+GTYPE)
-           os.system("mv "+OUTPUT_PDF+'/'+GTYPE+'/'+PDFFILELIST+ " "+ARCHV+'/'+GTYPE+'/'+datefile+"_"+PDFFILELIST)
+           os.system("mv "+OUTPUT_PDF+'/'+GTYPE+'/'+PDFFILELIST+ " "+ARCHV+'/'+GTYPE+'/')
 
-
-            
-# try:
-#     #  os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/*')
-#     #  os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/*')
-# except OSError as e:
-#      print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
-#      print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
+    try:
+         os.system("rm -rf "+DT_DIR+'/'+GTYPE+'/'+"ReportID_"+IDREPORT+"*")
+         os.system("rm -rf "+SRC_IMG+'/'+GTYPE+'/'+REPORT+"*")
+    except OSError as e:
+         print("Error: %s : %s" % (SRC_IMG+'/'+GTYPE, e.strerror))
+         print("Error: %s : %s" % (DT_DIR+'/'+GTYPE, e.strerror))
