@@ -52,7 +52,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
 			j=$(($i+86400))
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
-			PNGNAME=${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png
+			PNGNAME=`${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png`
 
 			/usr/bin/rrdtool graph ${PNGNAME} \
 			--imgformat=PNG \
