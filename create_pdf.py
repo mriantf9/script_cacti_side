@@ -115,6 +115,7 @@ for filecsv in csv_list:
                 pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
                 pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
+                print (imglist)
                 pdf.image(path, 45, 65, 190, 80)
                 idx += 1
         pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+datefile+"_"+REPORT+"_"+PDFNAME+".pdf")
