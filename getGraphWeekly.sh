@@ -42,7 +42,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 	  RRDNAME=`echo $line | awk -F';' '{print $7}'`
 	  FILENAME=`echo $line | awk -F';' '{print $7}' | sed 's/ /_/g' | sed 's/\//-/g'`
 	  PERIODIC=`echo $line | awk -F';' '{print $8}'`
-	  PNGNAME=${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png
+	  
 	  
 	  if [ $PERIODIC == "Days" ]
 	  then
@@ -52,6 +52,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
 			j=$(($i+86400))
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
+			PNGNAME=${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png
 
 			/usr/bin/rrdtool graph ${PNGNAME} \
 			--imgformat=PNG \
