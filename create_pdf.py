@@ -37,7 +37,7 @@ lastMonth = TODAY - timedelta(days=31)
 LAST_MONTH = lastMonth.strftime("%d %B %Y")
 
 tdy = TODAY.strftime("%d %B %Y")
-datefile = TODAY.strftime("%Y%b%d-%H:%M:%S")
+datefile = TODAY.strftime("%Y%b%d_%H%M%S")
 
 #################################
 ######### LAST WEEK #############
