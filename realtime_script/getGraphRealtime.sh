@@ -86,7 +86,7 @@ do
         done
         elif [[ $PERIODIC == "Weeks" ]]
 	  then
-		for(((z=${startdatesec}; z<${enddatesec}; z+=604800))
+		for((z=${startdatesec}; z<${enddatesec}; z+=604800))
 		do
 			FN=`date -d @${z} '+%Y%m%d'`
 			tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
