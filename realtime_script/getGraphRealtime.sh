@@ -204,6 +204,6 @@ do
 		done
       fi
     done < ${DTL}/${i}
-    /usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py $paramuniqID
+    /usr/local/bin/python3.8 ${DIR}/script/realtime_script/realtime_pdf.py $paramuniqID
 done
 rm -rf ${WORKDIR}/tmp_list
