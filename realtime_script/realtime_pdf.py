@@ -23,6 +23,11 @@ filecsvnya = WORKDIR+"/data_list"
 csv_list = listdir(WORKDIR+"/data_list")
 UNIQCODE = sys.argv[1]
 
+TITLE = ''
+PERIODIC = ''
+PDFNAME = ''
+
+
 ######################################
 ########### LOOP FILE CSV ############
 ######################################
@@ -41,6 +46,8 @@ for filecsv in csv_list:
         ##### LOOP ROW CSV FILE #######
         ###############################
         for row in csv_reader:
+           # print(row)
+           # exit()
             TITLE = row[1]
             STARTDATE = row[2]
             ENDDATE = row[3]
