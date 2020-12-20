@@ -23,10 +23,6 @@ filecsvnya = WORKDIR+"/data_list"
 csv_list = listdir(WORKDIR+"/data_list")
 UNIQCODE = sys.argv[1]
 
-print(UNIQCODE)
-exit()
-
-
 ######################################
 ########### LOOP FILE CSV ############
 ######################################
