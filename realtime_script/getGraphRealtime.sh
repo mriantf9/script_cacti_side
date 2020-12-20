@@ -25,9 +25,9 @@ do
       startdatesec=`date -d "${startdate}" +%s`
       enddatesec=`date -d "${enddate}" +%s`
 
-      if [ $periodic == "Days" ]
+      if [[ ${periodic} == "Days" ]]
       then
-        for((z=$startdatesec; z<$endatesec; z+=86400))
+        for((z=${startdatesec}; z<${enddatesec}; z+=86400))
         do
             FN=`date -d @${z} '+%Y%m%d'`
 			tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
