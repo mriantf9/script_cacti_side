@@ -144,7 +144,7 @@ do
 			GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s' 
 		done
 	  else
-	    for(((z=${startdatesec}; z<${enddatesec}; z+=2678400))
+	    for((z=${startdatesec}; z<${enddatesec}; z+=2678400))
 		do
 			FN=`date -d @${z} '+%Y%m%d'`
 			tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
