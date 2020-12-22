@@ -20,9 +20,9 @@ WORKDIR=DIR+"/REALTIME"
 OUTPDF=WORKDIR+"/OUTPUT_PDF"
 SRC_IMG=WORKDIR+"/OUTPUT"
 filecsvnya = WORKDIR+"/data_list"
+UNIQCODE = sys.argv[1]
 csv_list = fnmatch.filter(os.listdir(WORKDIR+"/data_list"), UNIQCODE+"*.csv")
 #csv_list = listdir(WORKDIR+"/data_list")
-UNIQCODE = sys.argv[1]
 
 TITLE = ''
 PERIODIC = ''
