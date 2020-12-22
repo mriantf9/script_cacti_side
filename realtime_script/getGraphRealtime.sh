@@ -11,7 +11,7 @@ ls ${DTL} > ${WORKDIR}/tmp_list
 for i in `cat ${WORKDIR}/tmp_list`
 do
     paramuniqID=`echo ${i} | awk -F'_' '{print $1}'`
-    cat ${DTL}/${i} | while read line
+    cat ${DTL}/${i} | grep ${i} | while read line
     do
       uniqeID=`echo $line | awk -F';' '{print $1}'`
       report_title=`echo $line | awk -F';' '{print $2}'`
