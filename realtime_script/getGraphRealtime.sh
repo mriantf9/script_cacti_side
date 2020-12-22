@@ -21,7 +21,7 @@ do
       periodic=`echo $line | awk -F';' '{print $6}'`
       rrd_file=`echo $line | awk -F';' '{print $7}'`
       rrd_name=`echo $line | awk -F';' '{print $8}'`
-	  filename=`echo $line | awk -F';' '{print $8}' | sed 's/ /_/g' | sed 's/\//-/g'`
+      filename=`echo $line | awk -F';' '{print $8}' | sed 's/ /_/g' | sed 's/\//-/g'`
       
       startdatesec=`date -d "${startdate}" +%s`
       enddatesec=`date -d "${enddate}" +%s`
