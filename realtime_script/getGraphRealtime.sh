@@ -100,7 +100,15 @@ do
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-				j=$(($z+518400))
+				x=$(($z+518400))
+				if [[ $x > $enddatesec ]]
+				then
+					j=$(($enddatesec))
+					echo "masuk kesini"
+				else
+					j=$(($z+518400))
+					echo "masuk kesono"
+				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
 				/usr/bin/rrdtool graph ${OUTPUT}/${uniqeID}_${FN}_per${periodic}_${filename}.png \
@@ -158,7 +166,15 @@ do
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-				j=$(($z+2592000))
+				x=$(($z+2592000))
+				if [[ $x > $enddatesec ]]
+				then
+					j=$(($enddatesec))
+					echo "masuk kesini"
+				else
+					j=$(($z+2592000))
+					echo "masuk kesono"
+				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
 				/usr/bin/rrdtool graph ${OUTPUT}/${uniqeID}_${FN}_per${periodic}_${filename}.png \
