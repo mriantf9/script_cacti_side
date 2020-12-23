@@ -10,7 +10,7 @@ RTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ls ${DTL} > ${WORKDIR}/tmp_list
 
 for i in `cat ${WORKDIR}/tmp_list`
-	do
+do
 		paramuniqID=`echo ${i} | awk -F'_' '{print $1}'`
 		cat ${DTL}/${i} | grep ${paramuniqID} | while read line
 		do
@@ -92,7 +92,7 @@ for i in `cat ${WORKDIR}/tmp_list`
 				GPRINT:cdefg:AVERAGE:'Average\:%8.2lf%s'  \
 				GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s'
 			done
-			elif [[ $PERIODIC == "Weeks" ]]
+		elif [[ $PERIODIC == "Weeks" ]]
 		then
 			for((z=${startdatesec}; z<${enddatesec}; z+=604800))
 			do
@@ -212,6 +212,6 @@ for i in `cat ${WORKDIR}/tmp_list`
 		fi
 		done < ${DTL}/${i}
 		/usr/local/bin/python3.8 ${RTDIR}/realtime_pdf.py $paramuniqID
-	done
+done
 
 rm -rf ${WORKDIR}/tmp_list
