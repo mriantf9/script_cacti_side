@@ -7,10 +7,10 @@ RRALOC="/var/lib/cacti/rra"
 DTL="${WORKDIR}/data_list"
 RTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+ls ${DTL} > ${WORKDIR}/tmp_list
 
-if test -f ${WORKDIR}/tmp_list
+if test -f `cat ${WORKDIR}/tmp_list`
 then
-	ls ${DTL} > ${WORKDIR}/tmp_list
 	for i in `cat ${WORKDIR}/tmp_list`
 	do
 		paramuniqID=`echo ${i} | awk -F'_' '{print $1}'`
