@@ -33,7 +33,8 @@ do
         do
             FN=`date -d @${z} '+%Y%m%d'`
 			tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-			if [[ $z > $enddatesec ]]
+                        j=''
+			if [[ $j > $enddatesec ]]
 			then
 			   j=$(($enddatesec))
 			else
