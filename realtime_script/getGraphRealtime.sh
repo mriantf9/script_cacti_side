@@ -10,6 +10,7 @@ RTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 if test -f ${WORKDIR}/tmp_list
 then
+	echo "ada" > ada
 	ls ${DTL} > ${WORKDIR}/tmp_list
 	for i in `cat ${WORKDIR}/tmp_list`
 	do
@@ -216,6 +217,7 @@ then
 		/usr/local/bin/python3.8 ${RTDIR}/realtime_pdf.py $paramuniqID
 	done
 else
+  echo "gak ada" > gaada
   exit
 fi
 
