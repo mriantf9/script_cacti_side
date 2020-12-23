@@ -33,7 +33,12 @@ do
         do
             FN=`date -d @${z} '+%Y%m%d'`
 			tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-			j=$(($z+86400))
+			if [[ $z > $enddatesec ]]
+			then
+			   j=$(($enddatesec))
+			else
+			   j=$(($z+86400))
+			fi
 			tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
             /usr/bin/rrdtool graph ${OUTPUT}/${uniqeID}_${FN}_per${periodic}_${filename}.png \

@@ -29,6 +29,9 @@ TITLE = ''
 PERIODIC = ''
 PDFNAME = ''
 
+TODAY = datetime.now()
+datefile = TODAY.strftime("%Y%b%d_%H%M%S")
+
 
 ######################################
 ########### LOOP FILE CSV ############
@@ -88,4 +91,8 @@ for filecsv in csv_list:
         print(PDFLIST)
         for PDFFILELIST in PDFLIST:
            os.system("/usr/bin/bash "+DIR+'/script/realtime_script/rtrunning_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+UNIQCODE)
-           os.system("mv "+OUTPDF+'/'+PDFFILELIST+ " "+ARCHV+'/')
+           print("Moving "+PDFFILELIST+" to archive")
+           os.system("mv "+OUTPDF+'/'+PDFFILELIST+ " "+ARCHV+'/'+datefile+"_"+PDFFILELIST)
+           
+        print("Deleting data source "+filecsv+" ...")
+        os.system("rm -rf "+filecsvnya+'/'+filecsv)
