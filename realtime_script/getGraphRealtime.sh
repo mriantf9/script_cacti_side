@@ -33,8 +33,8 @@ do
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-				
-				if [[ $z+86400 > $enddatesec ]]
+				x=$(($z+86400))
+				if [[ $x > $enddatesec ]]
 				then
 					j=$(($enddatesec))
 					echo "masuk kesini"
