@@ -87,5 +87,5 @@ for filecsv in csv_list:
         PDFLIST = fnmatch.filter(os.listdir(OUTPDF+'/'), UNIQCODE+"*.pdf")
         print(PDFLIST)
         for PDFFILELIST in PDFLIST:
-           os.system("/usr/bin/bash "+DIR+'/realtime_script/rtrunning_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+UNIQCODE)
+           os.system("/usr/bin/bash "+DIR+'/script/realtime_script/rtrunning_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+UNIQCODE)
            os.system("mv "+OUTPDF+'/'+PDFFILELIST+ " "+ARCHV+'/')
