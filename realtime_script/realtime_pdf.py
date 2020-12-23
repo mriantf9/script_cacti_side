@@ -20,6 +20,7 @@ WORKDIR=DIR+"/REALTIME"
 OUTPDF=WORKDIR+"/OUTPUT_PDF"
 SRC_IMG=WORKDIR+"/OUTPUT"
 filecsvnya = WORKDIR+"/data_list"
+ARCHV = WORKDIR+"/ARCHIVE"
 UNIQCODE = sys.argv[1]
 csv_list = fnmatch.filter(os.listdir(WORKDIR+"/data_list"), UNIQCODE+"*.csv")
 #csv_list = listdir(WORKDIR+"/data_list")
@@ -75,7 +76,16 @@ for filecsv in csv_list:
                 pdf.cell(250, 10, txt="Periodic Graph Capture - per"+PERIODIC, ln=1, align="C")
                 pdf.cell(0, 20, str(idx) + '. Traffic Pemakaian ' + RRDTITLE, 0, 1)
                 pdf.ln(10)
-                print (imglist)
+                # print (imglist)
                 pdf.image(path, 45, 65, 190, 80)
                 idx += 1
-        pdf.output(OUTPDF+'/'+UNIQCODE+"_"+"_"+PDFNAME+".pdf")
+        pdf.output(OUTPDF+'/'+UNIQCODE+"_"+PDFNAME+".pdf")
+
+        #################################
+        ######### SENT MAIL ############
+        ################################
+        PDFLIST = fnmatch.filter(os.listdir(OUTPDF+'/'), UNIQCODE+"*.pdf")
+        print(PDFLIST)
+        for PDFFILELIST in PDFLIST:
+           os.system("/usr/bin/bash "+DIR+'/script/rtrunning_mail.sh ' +EMAIL+" "+PDFFILELIST+" "+UNIQCODE)
+           os.system("mv "+OUTPDF+'/'+PDFFILELIST+ " "+ARCHV+'/')

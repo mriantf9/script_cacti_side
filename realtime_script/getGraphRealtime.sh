@@ -5,6 +5,7 @@ WORKDIR="${DIR}/REALTIME"
 OUTPUT="${WORKDIR}/OUTPUT"
 RRALOC="/var/lib/cacti/rra"
 DTL="${WORKDIR}/data_list"
+RTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ls ${DTL} > ${WORKDIR}/tmp_list
 
@@ -204,6 +205,6 @@ do
 		done
       fi
     done < ${DTL}/${i}
-    /usr/local/bin/python3.8 ${DIR}/script/realtime_script/realtime_pdf.py $paramuniqID
+    /usr/local/bin/python3.8 ${RTDIR}/realtime_pdf.py $paramuniqID
 done
 rm -rf ${WORKDIR}/tmp_list
