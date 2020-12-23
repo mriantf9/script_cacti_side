@@ -9,9 +9,7 @@ RTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ls ${DTL} > ${WORKDIR}/tmp_list
 
-if test -f `cat ${WORKDIR}/tmp_list`
-then
-	for i in `cat ${WORKDIR}/tmp_list`
+for i in `cat ${WORKDIR}/tmp_list`
 	do
 		paramuniqID=`echo ${i} | awk -F'_' '{print $1}'`
 		cat ${DTL}/${i} | grep ${paramuniqID} | while read line
@@ -215,8 +213,5 @@ then
 		done < ${DTL}/${i}
 		/usr/local/bin/python3.8 ${RTDIR}/realtime_pdf.py $paramuniqID
 	done
-else
-  exit
-fi
 
 rm -rf ${WORKDIR}/tmp_list
