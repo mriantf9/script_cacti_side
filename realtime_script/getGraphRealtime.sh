@@ -33,12 +33,12 @@ do
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-				j=''
-				if [[ $j > $enddatesec ]]
+				
+				if [[ $z+86400 > $enddatesec ]]
 				then
-				j=$(($enddatesec))
+					j=$(($enddatesec))
 				else
-				j=$(($z+86400))
+					j=$(($z+86400))
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
