@@ -92,7 +92,7 @@ do
 				GPRINT:cdefg:AVERAGE:'Average\:%8.2lf%s'  \
 				GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s'
 			done
-		elif [[ $PERIODIC == "Weeks" ]]
+		elif [[ ${periodic} == "Weeks" ]]
 		then
 			for((z=${startdatesec}; z<${enddatesec}; z+=604800))
 			do
