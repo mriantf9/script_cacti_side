@@ -98,7 +98,7 @@ for filecsv in csv_list:
             ##################################### 
             for imglist in filelist:
                 path = SRC_IMG+'/'+GTYPE+'/'+imglist
-
+                print(imglist)
                 #################################
                 ######### CREATE PDF ############
                 #################################
