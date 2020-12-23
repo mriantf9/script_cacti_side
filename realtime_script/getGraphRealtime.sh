@@ -37,8 +37,10 @@ do
 				if [[ $z+86400 > $enddatesec ]]
 				then
 					j=$(($enddatesec))
+					echo "masuk kesini"
 				else
 					j=$(($z+86400))
+					echo "masuk kesono"
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
