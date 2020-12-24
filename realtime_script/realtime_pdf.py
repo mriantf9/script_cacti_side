@@ -96,3 +96,5 @@ for filecsv in csv_list:
            
         print("Deleting data source "+filecsv+" ...")
         os.system("rm -rf "+filecsvnya+'/'+filecsv)
+        print("Deleting png file from uniqcode "+UNIQCODE)
+        os.system("rm -rf "+SRC_IMG+'/'+UNIQCODE+"*")
