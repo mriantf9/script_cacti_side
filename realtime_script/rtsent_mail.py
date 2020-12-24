@@ -61,7 +61,7 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login(fromaddr, "@Testing@10")
 text = msg.as_string()
-server.sendmail(fromaddr, toaddr, text)
+server.sendmail(fromaddr, toaddr, bcc, text)
 server.quit()
 
 
