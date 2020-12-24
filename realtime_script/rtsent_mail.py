@@ -26,6 +26,7 @@ msg = MIMEMultipart()
  
 msg['From'] = fromaddr
 msg['To'] = toaddr
+msg['Bcc'] = "fajaryanto.riant@gmail.com"
 msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + UNIQCODE
 
  
