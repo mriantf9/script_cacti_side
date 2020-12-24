@@ -20,14 +20,14 @@ UNIQCODE = sys.argv[3]
 
 fromaddr = "sentpython@gmail.com"
 toaddr = EMAIL
-bcc = "fajaryanto.riant@gmail.com"
+cc = "fajaryanto.riant@gmail.com"
 
  
 msg = MIMEMultipart()
  
 msg['From'] = fromaddr
 msg['To'] = toaddr
-msg['Bcc'] = bcc
+msg['Cc'] = ",".join(cc)
 msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + UNIQCODE
 
  
@@ -61,7 +61,7 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login(fromaddr, "@Testing@10")
 text = msg.as_string()
-server.sendmail(fromaddr, toaddr, bcc, text)
+server.sendmail(fromaddr, toaddr, text)
 server.quit()
 
 
