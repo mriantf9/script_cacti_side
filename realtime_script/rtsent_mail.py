@@ -20,13 +20,14 @@ UNIQCODE = sys.argv[3]
 
 fromaddr = "sentpython@gmail.com"
 toaddr = EMAIL
+bcc = "fajaryanto.riant@gmail.com"
 
  
 msg = MIMEMultipart()
  
 msg['From'] = fromaddr
 msg['To'] = toaddr
-msg['Bcc'] = "fajaryanto.riant@gmail.com"
+msg['Bcc'] = bcc
 msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + UNIQCODE
 
  
