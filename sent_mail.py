@@ -21,6 +21,8 @@ GTYPE = sys.argv[3]
 
 fromaddr = "sentpython@gmail.com"
 toaddr = EMAIL
+bcc = "fajaryanto.riant@gmail.com"
+toaddrs = [toaddr,bcc]
 
 ##################################
 ######## LAST MONTH ##############
@@ -85,7 +87,7 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login(fromaddr, "@Testing@10")
 text = msg.as_string()
-server.sendmail(fromaddr, toaddr, text)
+server.sendmail(fromaddr, toaddrs, text)
 server.quit()
 
 
