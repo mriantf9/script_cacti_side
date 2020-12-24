@@ -21,7 +21,7 @@ UNIQCODE = sys.argv[3]
 fromaddr = "sentpython@gmail.com"
 toaddr = EMAIL
 bcc = "fajaryanto.riant@gmail.com"
-toaddrs = toaddr+","+bcc
+toaddrs = [toaddr,bcc]
 
  
 msg = MIMEMultipart()
