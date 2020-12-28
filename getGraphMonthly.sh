@@ -241,6 +241,6 @@ for jo in `cat ${WORKDIR}/tmp_list`
 done
 rm -rf ${WORKDIR}/tmp_list
 
-/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly" $L_START $L_END
+/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly" 
 
 

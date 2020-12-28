@@ -23,8 +23,6 @@ SRC_IMG= DIR+"/OUTPUT"
 OUTPUT_PDF = DIR+"/OUTPUT_PDF"
 ARCHV = DIR+"/ARCHIVE"
 GTYPE = sys.argv[1]
-FDS = sys.argv[2]
-LDS = sys.argv[3]
 
 LISTIMG = listdir(SRC_IMG+'/'+GTYPE)
 
@@ -108,7 +106,7 @@ for filecsv in csv_list:
                 pdf.set_font("Times", size=15)
                 pdf.cell(250, 20, txt=TITLE, ln=1, align="C")
                 if GTYPE == "Monthly":
-                    pdf.cell(250, 2, "From "+str(FDS)+" - "+str(LDS), ln=2, align="C")
+                    pdf.cell(250, 2, "From "+str(LAST_MONTH)+" - "+str(tdy), ln=2, align="C")
                 elif GTYPE == "Weekly" :
                     pdf.cell(250, 2, "From "+str(LAST_WEEK)+" - "+str(tdy), ln=2, align="C")
                 else:
