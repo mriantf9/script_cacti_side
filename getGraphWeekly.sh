@@ -3,8 +3,8 @@
 
 ##DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-
-DIR="/home/mriantf/script_skripsi"
+user=`whoami`
+DIR="/home/${user}/script_skripsi"
 DT_RP="${DIR}/DATA_REPORT/Weekly"
 WORKDIR="${DIR}/script"
 OUTPUT="${DIR}/OUTPUT"

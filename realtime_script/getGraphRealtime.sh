@@ -1,6 +1,7 @@
 #!/bin/bash
 
-DIR="/home/mriantf/script_skripsi"
+user=`whoami`
+DIR="/home/${user}/script_skripsi"
 WORKDIR="${DIR}/REALTIME"
 OUTPUT="${WORKDIR}/OUTPUT"
 RRALOC="/var/lib/cacti/rra"

@@ -3,8 +3,8 @@
 
 ##DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-
-DIR="/home/mriantf/script_skripsi"
+user=`whoami`
+DIR="/home/${user}/script_skripsi"
 DT_RP="${DIR}/DATA_REPORT/Monthly"
 WORKDIR="${DIR}/script"
 OUTPUT="${DIR}/OUTPUT"
@@ -13,8 +13,11 @@ RRALOC="/var/lib/cacti/rra"
 ###################################
 ###################################
 ######## FOR DAYS AND WEEKS #######
-INTERVAL=`date -d 'now-31days' +%s`
+#INTERVAL=`date -d 'now-31days' +%s`
 NOW=`date -d now +%s`
+FIRSTDAY=`date -d "-1 month - $(($(date +%d)-1))days"`
+LASTDAY=`date -d "-$(date +%d) days -0 month"`
+INTERVAL=`date -d "${FIRSTDAY}" +%s`
 ##################################
 ##################################
 
@@ -36,9 +39,9 @@ L_END=`date -d @${NOW} '+%Y/%m/%d %H\:%M\:%S'`
 ls ${DT_RP}/ > ${WORKDIR}/tmp_list
 
 
-for j in `cat ${WORKDIR}/tmp_list`
+for jo in `cat ${WORKDIR}/tmp_list`
   do
-    cat ${DT_RP}/${j} | while read line
+    cat ${DT_RP}/${jo} | while read line
 	do
 	  REPORT_ID=`echo $line | awk -F';' '{print $1}'`
 	  REPORT_NAME=`echo $line | awk -F';' '{print $4}'`
@@ -57,7 +60,13 @@ for j in `cat ${WORKDIR}/tmp_list`
 		do
 			FN=`date -d @${i} '+%Y%m%d'`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
-			j=$(($i+86400))
+			x=$(($i+86400))
+			if [[ $x > $NOW ]]
+			then
+				j=$(($NOW))
+			else
+				j=$(($z+86400))
+			fi
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
 			/usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
@@ -116,7 +125,13 @@ for j in `cat ${WORKDIR}/tmp_list`
 		do
 			FN=`date -d @${i} '+%Y%m%d'`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
-			j=$(($i+518400))
+			x=$(($i+518400))
+			if [[ $x > $NOW ]]
+			then
+				j=$(($NOW))
+			else
+				j=$(($z+518400))
+			fi
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
 			/usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
@@ -221,7 +236,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 		GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s'
 	  fi
 	  
-	done < ${DT_RP}/${j}
+	done < ${DT_RP}/${jo}
 done
 rm -rf ${WORKDIR}/tmp_list
 
