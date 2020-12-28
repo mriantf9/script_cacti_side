@@ -17,7 +17,8 @@ RRALOC="/var/lib/cacti/rra"
 NOW=`date -d now +%s`
 FIRSTDAY=`date -d "-1 month - $(($(date +%d)-1))days"`
 LASTDAY=`date -d "-$(date +%d) days -0 month"`
-INTERVAL=`date -d "${FIRSTDAY}" +%s`
+FDS=`date -d "${FIRSTDAY}" +%s`
+LDS=`date -d "${LASTDAY}" +%s`
 ##################################
 ##################################
 
@@ -26,8 +27,8 @@ FN=`date -d @${NOW} '+%Y%m%d'`
 ###################################
 ###################################
 ######## FOR MONTH ################
-L_START=`date -d @${INTERVAL} '+%Y/%m/%d %H\:%M\:%S'`
-L_END=`date -d @${NOW} '+%Y/%m/%d %H\:%M\:%S'`
+L_START=`date -d @${FDS} '+%Y/%m/%d %H\:%M\:%S'`
+L_END=`date -d @${LDS} '+%Y/%m/%d %H\:%M\:%S'`
 ##################################
 ##################################
 
@@ -56,14 +57,14 @@ for jo in `cat ${WORKDIR}/tmp_list`
 	  #################################	  
 	  if [ $PERIODIC == "Days" ]
 	  then
-	    for((i=$INTERVAL; i<$NOW; i+=86400))
+	    for((i=$FDS; i<$LDS; i+=86400))
 		do
 			FN=`date -d @${i} '+%Y%m%d'`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
 			x=$(($i+86400))
-			if [[ $x > $NOW ]]
+			if [[ $x > $LDS ]]
 			then
-				j=$(($NOW))
+				j=$(($LDS))
 			else
 				j=$(($i+86400))
 			fi
@@ -121,14 +122,14 @@ for jo in `cat ${WORKDIR}/tmp_list`
 		done
 	  elif [ $PERIODIC == "Weeks" ]
 	  then
-		for((i=$INTERVAL; i<$NOW; i+=604800))
+		for((i=$FDS; i<$LDS; i+=604800))
 		do
 			FN=`date -d @${i} '+%Y%m%d'`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
 			x=$(($i+604800))
-			if [[ $x > $NOW ]]
+			if [[ $x > $LDS ]]
 			then
-				j=$(($NOW))
+				j=$(($LDS))
 			else
 				j=$(($i+518400))
 			fi
@@ -187,8 +188,8 @@ for jo in `cat ${WORKDIR}/tmp_list`
 	  else
 	    /usr/bin/rrdtool graph ${OUTPUT}/${GTYPE}/ReportID${REPORT_ID}_${FN}_${GTYPE}_per${PERIODIC}_${FILENAME}.png \
 		--imgformat=PNG \
-		--start="${INTERVAL}" \
-		--end="${NOW}" \
+		--start="${FDS}" \
+		--end="${LDS}" \
 		--pango-markup  \
 		--title="${RRDNAME}" \
 		--vertical-label='bits/sec' \
@@ -240,6 +241,6 @@ for jo in `cat ${WORKDIR}/tmp_list`
 done
 rm -rf ${WORKDIR}/tmp_list
 
-/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly"
+/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly" $L_START $L_END
 
 
