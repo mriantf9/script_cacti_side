@@ -65,7 +65,7 @@ for jo in `cat ${WORKDIR}/tmp_list`
 			then
 				j=$(($NOW))
 			else
-				j=$(($z+86400))
+				j=$(($i+86400))
 			fi
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
@@ -125,12 +125,12 @@ for jo in `cat ${WORKDIR}/tmp_list`
 		do
 			FN=`date -d @${i} '+%Y%m%d'`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
-			x=$(($i+518400))
+			x=$(($i+604800))
 			if [[ $x > $NOW ]]
 			then
 				j=$(($NOW))
 			else
-				j=$(($z+518400))
+				j=$(($i+518400))
 			fi
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
