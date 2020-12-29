@@ -29,7 +29,7 @@ toaddrs = [toaddr,bcc]
 ##################################
 TODAY = datetime.now()
 lastMonth = TODAY - timedelta(days=31)
-LAST_MONTH = lastMonth.strftime("%d %B %Y")
+LAST_MONTH = lastMonth.strftime("%B %Y")
 
 tdy = TODAY.strftime("%d %B %Y")
 
