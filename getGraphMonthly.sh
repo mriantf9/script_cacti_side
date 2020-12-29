@@ -15,7 +15,9 @@ RRALOC="/var/lib/cacti/rra"
 ######## FOR DAYS AND WEEKS #######
 #INTERVAL=`date -d 'now-31days' +%s`
 NOW=`date -d now +%s`
+## Firstday previous month ##
 FIRSTDAY=`date -d "-1 month - $(($(date +%d)-1))days"`
+## Lastday previous month ##
 LASTDAY=`date -d "-$(date +%d) days -0 month"`
 FDS=`date -d "${FIRSTDAY}" +%s`
 LDS=`date -d "${LASTDAY}" +%s`
@@ -32,6 +34,8 @@ L_END=`date -d @${LDS} '+%Y/%m/%d %H\:%M\:%S'`
 ##################################
 ##################################
 
+sdt=`date -d @${FDS} '+%Y/%m/%d'`
+edt=`date -d @${LDS} '+%Y/%m/%d'`
 
 ##################################
 ##### CREATE TMP LIST FROM #######
@@ -241,6 +245,6 @@ for jo in `cat ${WORKDIR}/tmp_list`
 done
 rm -rf ${WORKDIR}/tmp_list
 
-/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly" 
+/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly" $sdt $edt
 
 
