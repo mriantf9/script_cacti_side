@@ -38,10 +38,8 @@ do
 				if [[ $x > $enddatesec ]]
 				then
 					j=$(($enddatesec))
-					echo "masuk kesini"
 				else
 					j=$(($z+86400))
-					echo "masuk kesono"
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
@@ -105,10 +103,8 @@ do
 				if [[ $x > $enddatesec ]]
 				then
 					j=$(($enddatesec))
-					echo "masuk kesini"
 				else
 					j=$(($z+518400))
-					echo "masuk kesono"
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
@@ -163,18 +159,16 @@ do
 				GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s' 
 			done
 		else
-			for((z=${startdatesec}; z<${enddatesec}; z+=2678400))
+			for((z=${startdatesec}; z<${enddatesec}; z+=2592000))
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-				x=$(($z+2592000))
+				x=$(($z+2505600))
 				if [[ $x > $enddatesec ]]
 				then
 					j=$(($enddatesec))
-					echo "masuk kesini"
 				else
-					j=$(($z+2592000))
-					echo "masuk kesono"
+					j=$(($z+2505600))
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
