@@ -50,11 +50,11 @@ msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = toaddr
 if GTYPE == "Monthly":
-    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_MONTH
+    msg['Subject'] = "[DO NOT REPLY] - MONTHLY REPORT GRAPHIC UTILIZATION " + LAST_MONTH
 elif GTYPE == "Weekly":
-    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_WEEK + " TO " + tdy
+    msg['Subject'] = "[DO NOT REPLY] - WEEKLY REPORT GRAPHIC UTILIZATION " + LAST_WEEK + " - " + tdy
 else:
-    msg['Subject'] = "[DO NOT REPLY] - REPORT GRAPHIC UTILIZATION " + LAST_24HOURS
+    msg['Subject'] = "[DO NOT REPLY] - DAILY REPORT GRAPHIC UTILIZATION " + LAST_24HOURS
 
  
 body = '''Dear Customer,
