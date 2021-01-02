@@ -87,7 +87,7 @@ do
 				GPRINT:cdefb:LAST:'Current\:%8.2lf%s'  \
 				GPRINT:cdefb:AVERAGE:'Average\:%8.2lf%s'  \
 				GPRINT:cdefb:MAX:'Maximum\:%8.2lf%s\n'  \
-				LINE1:cdeff#002A97FF:'Outbound'  \
+				LINE1:cdeff#002A97FF:'Outbound '  \
 				LINE1:cdefg#002A97FF:  \
 				GPRINT:cdefg:LAST:'Current\:%8.2lf%s'  \
 				GPRINT:cdefg:AVERAGE:'Average\:%8.2lf%s'  \
@@ -152,7 +152,7 @@ do
 				GPRINT:cdefb:LAST:'Current\:%8.2lf%s'  \
 				GPRINT:cdefb:AVERAGE:'Average\:%8.2lf%s'  \
 				GPRINT:cdefb:MAX:'Maximum\:%8.2lf%s\n'  \
-				LINE1:cdeff#002A97FF:'Outbound'  \
+				LINE1:cdeff#002A97FF:'Outbound '  \
 				LINE1:cdefg#002A97FF:  \
 				GPRINT:cdefg:LAST:'Current\:%8.2lf%s'  \
 				GPRINT:cdefg:AVERAGE:'Average\:%8.2lf%s'  \
@@ -216,7 +216,7 @@ do
 				GPRINT:cdefb:LAST:'Current\:%8.2lf%s'  \
 				GPRINT:cdefb:AVERAGE:'Average\:%8.2lf%s'  \
 				GPRINT:cdefb:MAX:'Maximum\:%8.2lf%s\n'  \
-				LINE1:cdeff#002A97FF:'Outbound'  \
+				LINE1:cdeff#002A97FF:'Outbound '  \
 				LINE1:cdefg#002A97FF:  \
 				GPRINT:cdefg:LAST:'Current\:%8.2lf%s'  \
 				GPRINT:cdefg:AVERAGE:'Average\:%8.2lf%s'  \
