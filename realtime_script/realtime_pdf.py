@@ -59,7 +59,7 @@ for filecsv in csv_list:
             EMAIL = row[4]
             PERIODIC = row[5]
             PDFNAME = TITLE.replace(" ", "_")
-            PDFNAMEFIX = PDFNAME.translate ({ord(c): "_" for c in "!@#$%^&*()[];:,.<>?|`~-=_+"})
+            PDFNAMEFIX = PDFNAME.translate ({ord(c): "_" for c in '!@#$%^&*()[];:,.<>/?|`~-=_+"'})
             RRDTITLE = row[7]
             RRDTITLE2 = RRDTITLE.replace(" ", "_")
             RRDTITLE3 = RRDTITLE2.replace("/","-")

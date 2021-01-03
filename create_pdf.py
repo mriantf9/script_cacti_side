@@ -83,6 +83,7 @@ for filecsv in csv_list:
             EMAIL = row[2]
             TITLE = row[3]
             PDFNAME = TITLE.replace(" ", "_")
+            PDFNAMEFIX = PDFNAME.translate ({ord(c): "_" for c in '!@#$%^&*()[];:,.<>/?|`~-=_+"'})
             RRDTITLE = row[6]
             RRDTITLE2 = RRDTITLE.replace(" ", "_")
             RRDTITLE3 = RRDTITLE2.replace("/","-")
@@ -120,7 +121,7 @@ for filecsv in csv_list:
                 print (imglist)
                 pdf.image(path, 45, 65, 190, 80)
                 idx += 1
-        pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+datefile+"_"+REPORT+"_"+PDFNAME+".pdf")
+        pdf.output(OUTPUT_PDF+'/'+GTYPE+'/'+datefile+"_"+REPORT+"_"+PDFNAMEFIX+".pdf")
 
         #################################
         ######### SENT MAIL ############
