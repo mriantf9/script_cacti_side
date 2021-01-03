@@ -4,7 +4,8 @@ user=`whoami`
 DIR="/home/${user}/script_skripsi"
 WORKDIR="${DIR}/REALTIME"
 OUTPUT="${WORKDIR}/OUTPUT"
-RRALOC="/var/lib/cacti/rra"
+# RRALOC="/var/lib/cacti/rra"
+RRALOC="/usr/share/cacti/rra"
 DTL="${WORKDIR}/data_list"
 RTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -159,16 +160,16 @@ do
 				GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s' 
 			done
 		else
-			for((z=${startdatesec}; z<${enddatesec}; z+=2592000))
+			for((z=${startdatesec}; z<${enddatesec}; z+=2678400))
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-				x=$(($z+2505600))
+				x=$(($z+2678400))
 				if [[ $x > $enddatesec ]]
 				then
 					j=$(($enddatesec))
 				else
-					j=$(($z+2505600))
+					j=$(($z+2592000))
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 

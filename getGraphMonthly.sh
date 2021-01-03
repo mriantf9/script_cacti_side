@@ -8,7 +8,8 @@ DIR="/home/${user}/script_skripsi"
 DT_RP="${DIR}/DATA_REPORT/Monthly"
 WORKDIR="${DIR}/script"
 OUTPUT="${DIR}/OUTPUT"
-RRALOC="/var/lib/cacti/rra"
+# RRALOC="/var/lib/cacti/rra"
+RRALOC="/usr/share/cacti/rra"
 
 ###################################
 ###################################
