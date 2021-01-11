@@ -158,7 +158,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 	  fi
 	  
 	done < ${DT_RP}/${j}
+	/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Weekly"
 done
 rm -rf ${WORKDIR}/tmp_list
 
-/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Weekly"

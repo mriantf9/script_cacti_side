@@ -243,9 +243,9 @@ for jo in `cat ${WORKDIR}/tmp_list`
 	  fi
 	  
 	done < ${DT_RP}/${jo}
+	/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly" $sdt $edt
 done
 rm -rf ${WORKDIR}/tmp_list
 
-/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Monthly" $sdt $edt
 
 
