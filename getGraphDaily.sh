@@ -96,7 +96,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 		GPRINT:cdefg:MAX:'Maximum\:%8.2lf%s' 
 	  
 	done < ${DT_RP}/${j}
-	/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Daily"
 done
+/usr/local/bin/python3.8 ${WORKDIR}/create_pdf.py "Daily"
 rm -rf ${WORKDIR}/tmp_list
 
