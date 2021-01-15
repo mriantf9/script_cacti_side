@@ -100,12 +100,12 @@ do
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
-				x=$(($z+518400))
+				x=$(($z+604800))
 				if [[ $x > $enddatesec ]]
 				then
 					j=$(($enddatesec))
 				else
-					j=$(($z+518400))
+					j=$(($z+604799))
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
@@ -169,7 +169,7 @@ do
 				then
 					j=$(($enddatesec))
 				else
-					j=$(($z+2592000))
+					j=$(($z+2678399))
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 

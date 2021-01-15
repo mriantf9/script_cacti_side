@@ -71,7 +71,7 @@ for jo in `cat ${WORKDIR}/tmp_list`
 			then
 				j=$(($LDS))
 			else
-				j=$(($i+86400))
+				j=$(($i+86399))
 			fi
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
@@ -136,7 +136,7 @@ for jo in `cat ${WORKDIR}/tmp_list`
 			then
 				j=$(($LDS))
 			else
-				j=$(($i+518400))
+				j=$(($i+604799))
 			fi
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 

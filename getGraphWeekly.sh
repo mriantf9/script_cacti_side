@@ -51,7 +51,7 @@ for j in `cat ${WORKDIR}/tmp_list`
 		do
 			FN=`date -d @${i} '+%Y%m%d'`
 			START=`date -d @${i} '+%Y/%m/%d %H\:%M\:%S'`
-			j=$(($i+86400))
+			j=$(($i+86399))
 			END=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 			
 
