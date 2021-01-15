@@ -40,7 +40,7 @@ do
 				then
 					j=$(($enddatesec))
 				else
-					j=$(($z+86400))
+					j=$(($z+86399))
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
