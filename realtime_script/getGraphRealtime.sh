@@ -31,8 +31,10 @@ do
 
 		if [[ ${periodic} == "Days" ]]
 		then
-			# for((z=${startdatesec}; z<${enddatesec}; z+=86400)) -> bentar untuk test per 30 jam
-			for((z=${startdatesec}; z<${enddatesec}; z+=122400))
+			for((z=${startdatesec}; z<${enddatesec}; z+=86400))
+
+			#-> bentar untuk test per 30 jam
+			# for((z=${startdatesec}; z<${enddatesec}; z+=122400))
 			do
 				FN=`date -d @${z} '+%Y%m%d'`
 				tglstart=`date -d @${z} '+%Y/%m/%d %H\:%M\:%S'`
@@ -42,8 +44,8 @@ do
 				then
 					j=$(($enddatesec))
 				else
-					# j=$(($z+86399))
-					j=$(($z+122399))
+					j=$(($z+86399))
+					# j=$(($z+122399))
 				fi
 				tglend=`date -d @${j} '+%Y/%m/%d %H\:%M\:%S'`
 
