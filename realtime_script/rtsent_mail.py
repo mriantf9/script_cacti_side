@@ -59,7 +59,7 @@ msg.attach(part)
  
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
-server.login(fromaddr, "@Testing@10")
+server.login(fromaddr, "xxxpass")
 text = msg.as_string()
 server.sendmail(fromaddr, toaddrs, text)
 server.quit()
